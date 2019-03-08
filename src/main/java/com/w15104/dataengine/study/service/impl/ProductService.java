@@ -2,7 +2,7 @@ package com.w15104.dataengine.study.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.w15104.dataengine.study.mapper.ProductMapper;
-import com.w15104.dataengine.study.pojo.Product;
+import com.w15104.dataengine.study.entity.Product;
 import com.w15104.dataengine.study.service.IProductService;
 import org.springframework.stereotype.Service;
 

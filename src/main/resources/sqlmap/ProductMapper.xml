@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.w15104.dataengine.study.mapper.ProductMapper">
 
-    <resultMap id="baseResultMap" type="com.w15104.dataengine.study.pojo.Product" autoMapping="true">
+    <resultMap id="baseResultMap" type="com.w15104.dataengine.study.entity.Product" autoMapping="true">
     </resultMap>
 
     <sql id="baseColumns">
         id,pname,price,num,type,createDate
     </sql>
 
-    <update id="saveOrUpdate" parameterType="com.w15104.dataengine.study.pojo.Product" keyColumn="id"
+    <update id="saveOrUpdate" parameterType="com.w15104.dataengine.study.entity.Product" keyColumn="id"
             keyProperty="id" useGeneratedKeys="true">
         INSERT INTO product(<include refid="baseColumns"/>)
         VALUES (#{id},#{pname},#{price},#{num},#{type},now())

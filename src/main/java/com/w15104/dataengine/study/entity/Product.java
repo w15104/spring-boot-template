@@ -1,4 +1,4 @@
-package com.w15104.dataengine.study.pojo;
+package com.w15104.dataengine.study.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

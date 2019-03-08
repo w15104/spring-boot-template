@@ -1,9 +1,8 @@
 package com.w15104.dataengine.study.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.w15104.dataengine.study.pojo.Product;
+import com.w15104.dataengine.study.entity.Product;
 import com.w15104.dataengine.study.service.IProductService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.prefs.AbstractPreferences;
 
 /*
  *

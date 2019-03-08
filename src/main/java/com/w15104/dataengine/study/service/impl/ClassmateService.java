@@ -1,7 +1,7 @@
 package com.w15104.dataengine.study.service.impl;
 
 import com.w15104.dataengine.study.mapper.ClassmateMapper;
-import com.w15104.dataengine.study.pojo.Classmate;
+import com.w15104.dataengine.study.entity.Classmate;
 import com.w15104.dataengine.study.service.IClassmateService;
 import org.springframework.stereotype.Service;
 

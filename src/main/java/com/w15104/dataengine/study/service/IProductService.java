@@ -1,6 +1,6 @@
 package com.w15104.dataengine.study.service;
 
-import com.w15104.dataengine.study.pojo.Product;
+import com.w15104.dataengine.study.entity.Product;
 
 import java.util.List;
 

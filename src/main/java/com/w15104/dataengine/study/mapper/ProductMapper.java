@@ -1,6 +1,6 @@
 package com.w15104.dataengine.study.mapper;
 
-import com.w15104.dataengine.study.pojo.Product;
+import com.w15104.dataengine.study.entity.Product;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

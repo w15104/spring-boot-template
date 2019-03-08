@@ -1,6 +1,6 @@
 package com.w15104.dataengine.study.mapper;
 
-import com.w15104.dataengine.study.pojo.Classmate;
+import com.w15104.dataengine.study.entity.Classmate;
 
 import java.util.List;
 
