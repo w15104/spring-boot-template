@@ -3,6 +3,8 @@ package com.w15104.dataengine.study.controller;
 import com.github.pagehelper.PageInfo;
 import com.w15104.dataengine.study.basic.CommonException;
 import com.w15104.dataengine.study.basic.ErrorCode;
+import com.w15104.dataengine.study.basic.Result;
+import com.w15104.dataengine.study.basic.ResultUtil;
 import com.w15104.dataengine.study.entity.Product;
 import com.w15104.dataengine.study.service.IProductService;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,10 +42,10 @@ public class ProductController {
      */
     @RequestMapping(value = "/getPage/{pageNo}/{pageSize}}")
     @ResponseBody
-    public PageInfo getPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize){
+    public Result<PageInfo> getPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize){
         List<Product> products = productService.getListWithPage(pageNo,pageSize);
         PageInfo<Product> pageInfo = new PageInfo<>(products);
-        return pageInfo;
+        return ResultUtil.ok(pageInfo);
     }
 
     /**
@@ -52,11 +54,8 @@ public class ProductController {
      */
     @RequestMapping(value = "/getAll")
     @ResponseBody
-    public List<Product> getAll() throws CommonException{
-
-        throw new CommonException( ErrorCode.E_00001);
-
-       // return productService.getListWithPage(null,null);
+    public Result<List<Product>> getAll() throws CommonException{
+        return ResultUtil.ok(productService.getListWithPage(null,null));
     }
 
     /**
@@ -66,9 +65,13 @@ public class ProductController {
      */
     @RequestMapping(value = "/add")
     @ResponseBody
-    public String addProduct(Product product){
+    public Result<String> addProduct(Product product){
         int result = productService.add(product);
-        return result > 0 ? "添加商品成功" : "添加失败";
+        if(result >0){
+            return ResultUtil.ok();
+        }else{
+            return ResultUtil.error(ErrorCode.E_00001);
+        }
     }
 
     /**
@@ -78,9 +81,13 @@ public class ProductController {
      */
     @RequestMapping(value = "/delete")
     @ResponseBody
-    public String detete(Integer id){
+    public Result<String> detete(Integer id){
         int result = productService.deleteById(id);
-        return result > 0 ? "删除商品成功" : "删除失败";
+        if(result >0){
+            return ResultUtil.ok();
+        }else{
+            return ResultUtil.error(ErrorCode.E_00002);
+        }
     }
 
 }

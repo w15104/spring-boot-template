@@ -29,6 +29,8 @@ public enum ErrorCode {
     E_00004("更新错误", "update error"),
 
     E_00005("下载错误", "download error"),
+
+    E_00006("商品添加成功", "Product add successed"),
     ;
 
     /**

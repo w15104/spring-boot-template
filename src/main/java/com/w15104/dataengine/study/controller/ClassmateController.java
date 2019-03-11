@@ -1,5 +1,7 @@
 package com.w15104.dataengine.study.controller;
 
+import com.w15104.dataengine.study.basic.Result;
+import com.w15104.dataengine.study.basic.ResultUtil;
 import com.w15104.dataengine.study.entity.Classmate;
 import com.w15104.dataengine.study.service.IClassmateService;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,10 +39,9 @@ public class ClassmateController {
 
     @RequestMapping(value = "/get/{id}")
     @ResponseBody
-    public List<Classmate> findClassByID(@PathVariable String id){
-
+    public Result<List<Classmate>> findClassByID(@PathVariable String id){
         //返回访问值
-        return classmateService.findClassByID(id);
+        return ResultUtil.ok(classmateService.findClassByID(id));
     }
 
 }

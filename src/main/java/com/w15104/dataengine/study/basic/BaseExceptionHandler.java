@@ -29,7 +29,7 @@ public class BaseExceptionHandler {
             rs.setResult(false);
             rs.setCode( ((CommonException) ex).getCode() );
         } else {
-            //其他异常
+            //未知异常
             /**        日志输出    **/
             rs.setResult(true);
             rs.setCode(ErrorCode.E_00000);
