@@ -6,7 +6,6 @@ import com.w15104.dataengine.study.basic.ErrorCode;
 import com.w15104.dataengine.study.mapper.ProductMapper;
 import com.w15104.dataengine.study.entity.Product;
 import com.w15104.dataengine.study.service.IProductService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -34,27 +33,34 @@ public class ProductService implements IProductService {
     /**
      * 添加商品信息
      * @param product 商品实体
-     * @return int
      */
-    public int add(Product product) throws CommonException{
+    public void add(Product product) throws CommonException{
+        int result;
         try {
-            return productMapper.saveOrUpdate(product);
+            result = productMapper.saveOrUpdate(product);
         }catch (Exception e){
             throw new CommonException(ErrorCode.E_00001, e);
+        }
+
+        if(result == 0){
+            throw new CommonException(ErrorCode.E_00001);
         }
     }
 
     /**
      * 根据ID删除商品
      * @param id 商品ID
-     * @return int
      */
-    public int deleteById(Integer id)throws CommonException{
+    public void deleteById(Integer id)throws CommonException{
 
+        int result;
         try {
-            return productMapper.deleteById(id);
+             result = productMapper.deleteById(id);
         }catch (Exception e){
             throw new CommonException(ErrorCode.E_00002, e);
+        }
+        if(result == 0){
+            throw new CommonException(ErrorCode.E_00007);
         }
     }
 
@@ -63,14 +69,19 @@ public class ProductService implements IProductService {
      * @param id 商品ID
      * @return Product
      */
-    public Product getById(Integer id){
-        return productMapper.getById(id);
+    public Product getById(Integer id)throws CommonException{
+        try {
+            return productMapper.getById(id);
+        }catch (Exception e){
+            throw new CommonException(ErrorCode.E_00003, e);
+        }
+
     }
 
     /**
      * 这个方法中用到了我们开头配置依赖的分页插件pagehelper,很简单，只需要在service层传入参数，然后将参数传递给一个插件的一个静态方法即可；
-     * @pageNum 开始页数
-     * @pageSize 每页显示的数据条数
+     * @param pageNo 开始页数
+     * @param pageSize 每页显示的数据条数
     */
     public List<Product> getListWithPage(Integer pageNo,Integer pageSize) throws CommonException{
 

@@ -1,11 +1,6 @@
 package com.w15104.dataengine.study.basic;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
 
 import java.io.Serializable;
 
@@ -19,9 +14,7 @@ import java.io.Serializable;
  * @modified date:
  * @modified no:
  */
-//@JsonInclude
-@Component
-@Service
+@JsonInclude
 public class Result<T> implements Serializable {
 
 
@@ -93,8 +86,9 @@ public class Result<T> implements Serializable {
 
 
     public Result<T> setCode(ErrorCode code) {
-        this.errMsgCN = code.getMessage_cn();
-        this.errMsgUS = code.getMessage_us();
+        this.errMsgCN = code.getMessageCN();
+        this.errMsgUS = code.getMessageUS();
+        this.code = code;
         return this;
     }
 

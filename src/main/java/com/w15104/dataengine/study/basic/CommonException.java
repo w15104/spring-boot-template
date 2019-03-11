@@ -35,7 +35,7 @@ public class CommonException extends Exception{
      * @param code 错误码
      */
     public CommonException(ErrorCode code){
-        super( code.getMessage_us());
+        super( code.getMessageCN());
         this.code = code;
     }
 
@@ -45,7 +45,7 @@ public class CommonException extends Exception{
      * @param cause 异常
      */
     public CommonException(ErrorCode code, Throwable cause){
-        super( code.getMessage_us(), cause);
+        super( code.getMessageUS(), cause);
         this.code = code;
     }
 

@@ -27,43 +27,45 @@ public enum ErrorCode {
     E_00005("下载错误", "download error"),
 
     E_00006("商品添加成功", "Product add successed"),
+
+    E_00007("该商品不存在", "Product not exist"),
     ;
 
     /**
      * 中文描述
      */
-    private String message_cn;
+    private String messageCN;
 
     /**
      * 英文描述
      */
-    private String message_us;
+    private String messageUS;
 
     /**
      * 构造函数
-     * @param message_cn 中文描述
-     * @param message_us  英文描述
+     * @param messageCN 中文描述
+     * @param messageUS  英文描述
      */
-    private ErrorCode(String message_cn, String  message_us){
-        this.message_cn =message_cn;
-        this.message_us=message_us;
+    private ErrorCode(String messageCN, String  messageUS){
+        this.messageCN =messageCN;
+        this.messageUS=messageUS;
     }
 
 
-    public String getMessage_cn() {
-        return message_cn;
+    public String getMessageCN() {
+        return messageCN;
     }
 
-    public String getMessage_us() {
-        return message_us;
+    public String getMessageUS() {
+        return messageUS;
     }
 
-    public void setMessage_cn(String message_cn) {
-        this.message_cn = message_cn;
+    public void setMessageCN(String messageCN) {
+        this.messageCN = messageCN;
     }
 
-    public void setMessage_us(String message_us) {
-        this.message_us = message_us;
+    public void setMessageUS(String messageUS) {
+        this.messageUS = messageUS;
     }
 
 }

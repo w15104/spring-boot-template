@@ -17,8 +17,8 @@
         pname=#{pname},price=#{price},num=#{num},type=#{type}
     </update>
 
-    <delete id="deleteById">
-        DELETE FROM product BY id=#{id}
+    <delete id="deleteById" >
+        DELETE FROM product WHERE id=#{id}
     </delete>
 
     <select id="getById" resultMap="baseResultMap">

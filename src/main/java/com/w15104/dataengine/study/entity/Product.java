@@ -23,7 +23,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper=false)
 public class Product {
 
-    /**Teacher
+    /**
      * ID
      */
     private Integer id;
@@ -50,9 +50,9 @@ public class Product {
 
     /**
      * 创建时间
-     * @DatetimeFormat是将String转换成Date，一般前台给后台传值时用
-     * @JsonFormat(pattern="yyyy-MM-dd")  将Date转换成String  一般后台传值给前台时.
-     * @JsonFormat会让时间以0区时间显示。如果直接使用会少了8小时（我所在的是北京时区）,  需添加 ：timezone = "GMT+8",
+     * DatetimeFormat是将String转换成Date，一般前台给后台传值时用
+     * JsonFormat(pattern="yyyy-MM-dd")  将Date转换成String  一般后台传值给前台时.
+     * JsonFormat会让时间以0区时间显示。如果直接使用会少了8小时（我所在的是北京时区）,  需添加 ：timezone = "GMT+8",
      */
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(timezone = "GMT+8",pattern = "yyyy年MM月dd日 HH:mm:ss")

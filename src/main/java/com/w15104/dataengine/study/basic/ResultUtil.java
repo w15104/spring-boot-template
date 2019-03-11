@@ -19,10 +19,6 @@ import javax.annotation.Resource;
 @Component
 public class ResultUtil {
 
-
-    @Resource
-    private IClassmateService classmateService;
-
     private ResultUtil(){}
 
     /**

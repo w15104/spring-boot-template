@@ -2,7 +2,6 @@ package com.w15104.dataengine.study.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.w15104.dataengine.study.basic.CommonException;
-import com.w15104.dataengine.study.basic.ErrorCode;
 import com.w15104.dataengine.study.basic.Result;
 import com.w15104.dataengine.study.basic.ResultUtil;
 import com.w15104.dataengine.study.entity.Product;
@@ -80,5 +79,16 @@ public class ProductController {
     public Result<String> detete(@PathVariable  Integer id) throws CommonException{
         productService.deleteById(id);
         return ResultUtil.ok();
+    }
+
+    /**
+     *:删除商品
+     * @param id 产品ID
+     * @return String
+     */
+    @RequestMapping(value = "/get/{id}")
+    @ResponseBody
+    public Result<Product> get(@PathVariable  Integer id) throws CommonException{
+        return ResultUtil.ok(productService.getById(id));
     }
 }
