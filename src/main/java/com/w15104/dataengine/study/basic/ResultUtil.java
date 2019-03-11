@@ -1,5 +1,10 @@
 package com.w15104.dataengine.study.basic;
 
+import com.w15104.dataengine.study.service.IClassmateService;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+
 /*
  *
  * @description 返回结果封装工具操作类
@@ -11,7 +16,12 @@ package com.w15104.dataengine.study.basic;
  * @modified date:
  * @modified no:
  */
+@Component
 public class ResultUtil {
+
+
+    @Resource
+    private IClassmateService classmateService;
 
     private ResultUtil(){}
 
@@ -35,9 +45,10 @@ public class ResultUtil {
     /**
      * 构造失败报文
      * @param code 错误码
+     * @param isClinese 抛出错误的信息是否设置为中文
      * @return T
      */
-    public static <T> Result<T> error(ErrorCode code){
+    public static <T> Result<T> error(ErrorCode code, Boolean isClinese){
         return new Result<T>().setResult(false).setCode(code);
     }
 

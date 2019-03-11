@@ -1,5 +1,6 @@
 package com.w15104.dataengine.study.basic;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -28,7 +29,7 @@ public class BaseExceptionHandler {
     /**
      * 全局异常捕捉处理
      * @param ex
-     * @return
+     * @return Object
      */
     @ResponseBody
     @ExceptionHandler(value = Exception.class)
@@ -38,16 +39,14 @@ public class BaseExceptionHandler {
             //自定义异常
             /**        日志输出    **/
             rs.setResult(false);
-            rs.setCode( ((CommonException) ex).getCode() );
+            rs.setCode( ((CommonException) ex).getCode());
         } else {
             //未知异常
             /**        日志输出    **/
-            rs.setResult(true);
+            rs.setResult(false);
             rs.setCode(ErrorCode.E_00000);
         }
 
         return new ResponseEntity<Result<String>>(rs, HttpStatus.OK);
-
     }
-
 }

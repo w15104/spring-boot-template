@@ -1,9 +1,12 @@
 package com.w15104.dataengine.study.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.w15104.dataengine.study.basic.CommonException;
+import com.w15104.dataengine.study.basic.ErrorCode;
 import com.w15104.dataengine.study.mapper.ProductMapper;
 import com.w15104.dataengine.study.entity.Product;
 import com.w15104.dataengine.study.service.IProductService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -33,8 +36,12 @@ public class ProductService implements IProductService {
      * @param product 商品实体
      * @return int
      */
-    public int add(Product product){
-        return productMapper.saveOrUpdate(product);
+    public int add(Product product) throws CommonException{
+        try {
+            return productMapper.saveOrUpdate(product);
+        }catch (Exception e){
+            throw new CommonException(ErrorCode.E_00001, e);
+        }
     }
 
     /**
@@ -42,8 +49,13 @@ public class ProductService implements IProductService {
      * @param id 商品ID
      * @return int
      */
-    public int deleteById(Integer id){
-        return productMapper.deleteById(id);
+    public int deleteById(Integer id)throws CommonException{
+
+        try {
+            return productMapper.deleteById(id);
+        }catch (Exception e){
+            throw new CommonException(ErrorCode.E_00002, e);
+        }
     }
 
     /**
@@ -60,12 +72,16 @@ public class ProductService implements IProductService {
      * @pageNum 开始页数
      * @pageSize 每页显示的数据条数
     */
-    public List<Product> getListWithPage(Integer pageNo,Integer pageSize){
+    public List<Product> getListWithPage(Integer pageNo,Integer pageSize) throws CommonException{
 
         //将参数传给这个方法就可以实现物理分页了，非常简单。
-        if(pageNo!=null && pageSize!=null){
-            PageHelper.startPage(pageNo, pageSize);
+        try {
+            if(pageNo!=null && pageSize!=null){
+                PageHelper.startPage(pageNo, pageSize);
+            }
+            return productMapper.getAll();
+        }catch (Exception e){
+            throw new CommonException(ErrorCode.E_00003, e);
         }
-        return productMapper.getAll();
     }
 }

@@ -1,9 +1,5 @@
 package com.w15104.dataengine.study.basic;
 
-
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
-
 /*
  *
  * @description 错误编码类
@@ -43,10 +39,6 @@ public enum ErrorCode {
      */
     private String message_us;
 
-
-    @Value("${exception.language.chinese:false}")
-    private boolean isChinese;
-
     /**
      * 构造函数
      * @param message_cn 中文描述
@@ -55,17 +47,6 @@ public enum ErrorCode {
     private ErrorCode(String message_cn, String  message_us){
         this.message_cn =message_cn;
         this.message_us=message_us;
-    }
-
-    /**
-     * 获取错误信息
-     * @return String
-     */
-    public String getMessage(){
-        if(isChinese){
-            return message_cn;
-        }
-        return message_us;
     }
 
 

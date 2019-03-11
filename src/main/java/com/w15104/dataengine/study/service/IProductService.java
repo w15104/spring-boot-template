@@ -1,5 +1,6 @@
 package com.w15104.dataengine.study.service;
 
+import com.w15104.dataengine.study.basic.CommonException;
 import com.w15104.dataengine.study.entity.Product;
 
 import java.util.List;
@@ -17,11 +18,11 @@ import java.util.List;
  */
 public interface IProductService {
 
-    int add(Product product);
+    int add(Product product) throws CommonException;
 
-    int deleteById(Integer id);
+    int deleteById(Integer id)throws CommonException;
 
     Product getById(Integer id);
 
-    List<Product> getListWithPage(Integer pageNo, Integer pageSize);
+    List<Product> getListWithPage(Integer pageNo, Integer pageSize) throws CommonException;
 }

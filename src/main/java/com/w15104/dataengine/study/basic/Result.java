@@ -1,6 +1,11 @@
 package com.w15104.dataengine.study.basic;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import javax.annotation.Resource;
 
 import java.io.Serializable;
 
@@ -14,8 +19,11 @@ import java.io.Serializable;
  * @modified date:
  * @modified no:
  */
-@JsonInclude
+//@JsonInclude
+@Component
+@Service
 public class Result<T> implements Serializable {
+
 
     /**
      * 成功标志
@@ -33,9 +41,14 @@ public class Result<T> implements Serializable {
     private T data;
 
     /**
-     * 错误信息
+     * 中文错误信息
      */
-    private String errMsg;
+    private String errMsgUS;
+
+    /**
+     * 英文错误信息
+     */
+    private String errMsgCN;
 
 
     public T getData() {
@@ -47,12 +60,21 @@ public class Result<T> implements Serializable {
         return  this;
     }
 
-    public String getErrMsg() {
-        return errMsg;
+    public String getErrMsgCN() {
+        return errMsgCN;
     }
 
-    public Result<T> setErrMsg(String errMsg) {
-        this.errMsg = errMsg;
+    public Result<T> setErrMsgCN(String errMsgCN) {
+        this.errMsgCN = errMsgCN;
+        return this;
+    }
+
+    public String getErrMsgUS() {
+        return errMsgUS;
+    }
+
+    public Result<T> setErrMsgUS(String errMsgUS) {
+        this.errMsgUS = errMsgUS;
         return this;
     }
 
@@ -71,8 +93,8 @@ public class Result<T> implements Serializable {
 
 
     public Result<T> setCode(ErrorCode code) {
-        this.code = code;
-        this.errMsg = code.getMessage();
+        this.errMsgCN = code.getMessage_cn();
+        this.errMsgUS = code.getMessage_us();
         return this;
     }
 
@@ -82,7 +104,8 @@ public class Result<T> implements Serializable {
                 "result=" + result +
                 ", code=" + code +
                 ", data=" + data +
-                ", errMsg='" + errMsg + '\'' +
+                ", errMsgUS='" + errMsgUS + '\'' +
+                ", errMsgCN='" + errMsgCN + '\'' +
                 '}';
     }
 }

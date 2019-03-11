@@ -42,7 +42,7 @@ public class ProductController {
      */
     @RequestMapping(value = "/getPage/{pageNo}/{pageSize}}")
     @ResponseBody
-    public Result<PageInfo> getPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize){
+    public Result<PageInfo> getPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize)throws CommonException{
         List<Product> products = productService.getListWithPage(pageNo,pageSize);
         PageInfo<Product> pageInfo = new PageInfo<>(products);
         return ResultUtil.ok(pageInfo);
@@ -65,13 +65,9 @@ public class ProductController {
      */
     @RequestMapping(value = "/add")
     @ResponseBody
-    public Result<String> addProduct(Product product){
-        int result = productService.add(product);
-        if(result >0){
-            return ResultUtil.ok();
-        }else{
-            return ResultUtil.error(ErrorCode.E_00001);
-        }
+    public Result<String> addProduct(Product product)throws CommonException{
+        productService.add(product);
+        return ResultUtil.ok();
     }
 
     /**
@@ -79,15 +75,10 @@ public class ProductController {
      * @param id 产品ID
      * @return String
      */
-    @RequestMapping(value = "/delete")
+    @RequestMapping(value = "/delete/{id}")
     @ResponseBody
-    public Result<String> detete(Integer id){
-        int result = productService.deleteById(id);
-        if(result >0){
-            return ResultUtil.ok();
-        }else{
-            return ResultUtil.error(ErrorCode.E_00002);
-        }
+    public Result<String> detete(@PathVariable  Integer id) throws CommonException{
+        productService.deleteById(id);
+        return ResultUtil.ok();
     }
-
 }
