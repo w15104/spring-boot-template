@@ -1,6 +1,8 @@
 package com.w15104.dataengine.study.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.w15104.dataengine.study.basic.CommonException;
+import com.w15104.dataengine.study.basic.ErrorCode;
 import com.w15104.dataengine.study.entity.Product;
 import com.w15104.dataengine.study.service.IProductService;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,8 +52,11 @@ public class ProductController {
      */
     @RequestMapping(value = "/getAll")
     @ResponseBody
-    public List<Product> getAll(){
-        return productService.getListWithPage(null,null);
+    public List<Product> getAll() throws CommonException{
+
+        throw new CommonException( ErrorCode.E_00001);
+
+       // return productService.getListWithPage(null,null);
     }
 
     /**

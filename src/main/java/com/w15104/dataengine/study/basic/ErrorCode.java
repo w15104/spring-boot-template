@@ -2,7 +2,6 @@ package com.w15104.dataengine.study.basic;
 
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import org.springframework.beans.factory.annotation.Value;
 
 /*
@@ -16,7 +15,6 @@ import org.springframework.beans.factory.annotation.Value;
  * @modified date:
  * @modified no:
  */
-@Data
 public enum ErrorCode {
 
 
@@ -84,4 +82,5 @@ public enum ErrorCode {
     public void setMessage_us(String message_us) {
         this.message_us = message_us;
     }
+
 }
