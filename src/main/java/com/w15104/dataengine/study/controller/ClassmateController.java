@@ -14,7 +14,7 @@ import java.util.List;
 
 /*
  *
- * @Description 班级控制器
+ * @description 班级控制器
  *
  * @author w15104
  * @data: 2019-3-5
@@ -32,11 +32,10 @@ public class ClassmateController {
     private IClassmateService classmateService;
 
     /**
-     * Description： 根据班級ID查找班級信息  http://localhost:8181/wfh/classmate/get/1
+     * 根据班級ID查找班級信息  http://localhost:8181/wfh/classmate/get/1
      * @param id 班級ID
      * @return List<Classmate> 班級信息列表
      */
-
     @RequestMapping(value = "/get/{id}")
     @ResponseBody
     public Result<List<Classmate>> findClassByID(@PathVariable String id){

@@ -27,7 +27,7 @@ public class ClassmateService implements IClassmateService {
 
 
     /**
-     *  Description: 根据ID查找班级信息
+     *  根据ID查找班级信息
      * @param id 班级ID
      * @return  List<Classmate>
      */

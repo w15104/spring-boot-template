@@ -11,6 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+/*
+ *
+ * @Description 统一异常处理类
+ *
+ * @author w15104
+ * @data: 2019-3-5
+ *
+ * @modified by:
+ * @modified date:
+ * @modified no:
+ */
 @ControllerAdvice
 public class BaseExceptionHandler {
 
@@ -35,9 +46,8 @@ public class BaseExceptionHandler {
             rs.setCode(ErrorCode.E_00000);
         }
 
-        //if (request.getHeader("Accept").contains("application/json")){
-             return new ResponseEntity<Result<String>>(rs, HttpStatus.OK);
-        //}
+        return new ResponseEntity<Result<String>>(rs, HttpStatus.OK);
+
     }
 
 }

@@ -4,6 +4,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 
+/*
+ * @description 统一返回
+ *
+ * @author w15104
+ * @data: 2019-3-5
+ *
+ * @modified by:
+ * @modified date:
+ * @modified no:
+ */
 @JsonInclude
 public class Result<T> implements Serializable {
 

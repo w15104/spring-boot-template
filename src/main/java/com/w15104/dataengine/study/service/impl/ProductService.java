@@ -29,7 +29,7 @@ public class ProductService implements IProductService {
 
 
     /**
-     * Description：添加商品信息
+     * 添加商品信息
      * @param product 商品实体
      * @return int
      */
@@ -38,7 +38,7 @@ public class ProductService implements IProductService {
     }
 
     /**
-     * Description： 根据ID删除商品
+     * 根据ID删除商品
      * @param id 商品ID
      * @return int
      */
@@ -47,7 +47,7 @@ public class ProductService implements IProductService {
     }
 
     /**
-     * Description: 根基ID查找商品
+     * 根基ID查找商品
      * @param id 商品ID
      * @return Product
      */
@@ -56,7 +56,7 @@ public class ProductService implements IProductService {
     }
 
     /**
-     * Description: 这个方法中用到了我们开头配置依赖的分页插件pagehelper,很简单，只需要在service层传入参数，然后将参数传递给一个插件的一个静态方法即可；
+     * 这个方法中用到了我们开头配置依赖的分页插件pagehelper,很简单，只需要在service层传入参数，然后将参数传递给一个插件的一个静态方法即可；
      * @pageNum 开始页数
      * @pageSize 每页显示的数据条数
     */

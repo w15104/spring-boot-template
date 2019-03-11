@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 /*
  *
- * @description 异常编码类
+ * @description 错误编码类
  *
  * @author w15104
  * @data: 2019-3-5

@@ -17,7 +17,7 @@ import java.util.List;
 
 /*
  *
- * @Description 产品控制器
+ * @description 产品控制器
  *
  * @author w15104
  * @data: 2019-3-5
@@ -35,7 +35,7 @@ public class ProductController {
     private IProductService productService;
 
     /**
-     * Description: 分页查询产品信息 http://localhost:8181/wfh/product/getPage
+     * 分页查询产品信息 http://localhost:8181/wfh/product/getPage
      * @param pageNo: 查询第几页
      * @param pageSize 每页数量
      * @return PageInfo 分页信息
@@ -49,7 +49,7 @@ public class ProductController {
     }
 
     /**
-     * Description: 获取所有产品信息
+     * 获取所有产品信息
      * @return List<Product>
      */
     @RequestMapping(value = "/getAll")
@@ -59,7 +59,7 @@ public class ProductController {
     }
 
     /**
-     * Description: 添加商品
+     * 添加商品
      * @param product 产品信息
      * @return String
      */
@@ -75,7 +75,7 @@ public class ProductController {
     }
 
     /**
-     * Description: 删除商品
+     *:删除商品
      * @param id 产品ID
      * @return String
      */

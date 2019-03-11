@@ -2,7 +2,7 @@ package com.w15104.dataengine.study.basic;
 
 /*
  *
- * @Description 返回结果封装工具操作类
+ * @description 返回结果封装工具操作类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -13,9 +13,7 @@ package com.w15104.dataengine.study.basic;
  */
 public class ResultUtil {
 
-
     private ResultUtil(){}
-
 
     /**
      * 构造成功报文
