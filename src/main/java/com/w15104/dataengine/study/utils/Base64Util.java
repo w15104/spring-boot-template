@@ -35,4 +35,5 @@ public class Base64Util
   public static String encode(String str) {
     return new String(Base64.encodeBase64(str.getBytes()));
   }
+
 }

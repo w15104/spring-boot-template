@@ -33,6 +33,8 @@ public enum ErrorCode {
     E_00008("AES 加密异常", "AES encrypt error"),
 
     E_00009("AES 解密异常", "AES decrypt error"),
+
+    E_00010("对象拷贝失败", "Object copy error"),
     ;
 
     /**

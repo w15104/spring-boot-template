@@ -4,17 +4,17 @@ import javax.servlet.ServletContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-/**
-* ContextUtil.java
-*
-* @version 1.0.0
-*
-* 新建时间：2017年11月10日
-* 新建人：w14100
-* 修改时间：
-* 修改人：
-* 修改原因：
-*/
+/*
+ *
+ * @description Spring 上下文工具类
+ *
+ * @author w15104
+ * @data: 2019-3-5
+ *
+ * @modified by:
+ * @modified date:
+ * @modified no:
+ */
 public final class ContextUtil{
 	
   private static final ContextUtil instance = new ContextUtil();
