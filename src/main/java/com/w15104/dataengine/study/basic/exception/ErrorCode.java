@@ -29,6 +29,10 @@ public enum ErrorCode {
     E_00006("商品添加成功", "Product add successed"),
 
     E_00007("该商品不存在", "Product not exist"),
+
+    E_00008("AES 加密异常", "AES encrypt error"),
+
+    E_00009("AES 解密异常", "AES decrypt error"),
     ;
 
     /**
