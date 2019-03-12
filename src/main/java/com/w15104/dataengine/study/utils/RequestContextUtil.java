@@ -29,6 +29,15 @@ public class RequestContextUtil {
 		return requestContext;
 	}
 
+
+	public static HttpServletRequest getRequest() {
+		if (RequestContextHolder.getRequestAttributes() == null) {
+			return null;
+		}
+		return ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
+	}
+
+
 	/**
 	 * 功能描述：获取当前登录人ID
 	 * @return

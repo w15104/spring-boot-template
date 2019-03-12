@@ -7,22 +7,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-/**
-* IPUtils.java
-*
-* @version 1.0.0
-*
-* 新建时间：2017年11月10日
-* 新建人：w14100
-* 修改时间：
-* 修改人：
-* 修改原因：
-*/
+/*
+ *
+ * @description IP工具类
+ *
+ * @author w15104
+ * @data: 2019-3-5
+ *
+ * @modified by:
+ * @modified date:
+ * @modified no:
+ */
 public class IPUtils {
 	
 	private IPUtils(){}
 	
-	protected static final Logger logger = LoggerFactory.getLogger(IPUtils.class);
+	private static final Logger logger = LoggerFactory.getLogger(IPUtils.class);
 	
 	/**
 	 * 本地IP常量
@@ -47,29 +47,37 @@ public class IPUtils {
 	 */
 	public static String getIpAddr(HttpServletRequest request)
 	{
-		String ipAddress = request.getHeader("x-forwarded-for");
-		if ((ipAddress == null) || (ipAddress.length() == 0) || ("unknown".equalsIgnoreCase(ipAddress))) {
-			ipAddress = request.getHeader("Proxy-Client-IP");
-		}
-		if ((ipAddress == null) || (ipAddress.length() == 0) || ("unknown".equalsIgnoreCase(ipAddress))) {
-			ipAddress = request.getHeader("WL-Proxy-Client-IP");
-		}
-		if ((ipAddress == null) || (ipAddress.length() == 0) || ("unknown".equalsIgnoreCase(ipAddress))) {
-			ipAddress = request.getRemoteAddr();
-			if ((ipAddress.equals(LOCALHOST)) || (ipAddress.equals(LHOST))) {
-				//根据网卡获取本机IP配置信息
-				try {
-					InetAddress inet = InetAddress.getLocalHost();
-					ipAddress = inet.getHostAddress();
-				} catch (UnknownHostException e) {
-					logger.error("获取主机IP失败", e);
-				}
+		String ipAddress = null;
+		if (request != null) {
+			ipAddress = request.getHeader("x-forwarded-for");
+			if (checkVariable(ipAddress)) {
+				ipAddress = request.getHeader("Proxy-Client-IP");
+			}
+			if (checkVariable(ipAddress)) {
+				ipAddress = request.getHeader("WL-Proxy-Client-IP");
+			}
+			if (checkVariable(ipAddress)) {
+				ipAddress = request.getRemoteAddr();
+			}
+
+			//对于多个代理的情况，第一个IP为客户端真实IP，多个IP按照','分割
+			if ((ipAddress != null) && (ipAddress.length() > 15) && (ipAddress.indexOf(SEPERATOR) > 0)) {
+				ipAddress = ipAddress.substring(0, ipAddress.indexOf(SEPERATOR));
 			}
 		}
-		//对于通过多个代理的情况，第一个IP为客户端真实IP，多个IP按照‘,’分隔
-		if (ipAddress != null && ipAddress.length() > 15 && ipAddress.indexOf(",") > 0) {
-			ipAddress = ipAddress.substring(0, ipAddress.indexOf(SEPERATOR));
+		if ((checkVariable(ipAddress)) || (ipAddress.equals(LOCALHOST)) || (ipAddress.equals(LHOST))) {
+			//根据网卡获取本机配置IP
+			try {
+				InetAddress inet = InetAddress.getLocalHost();
+				ipAddress = inet.getHostAddress();
+			} catch (UnknownHostException e) {
+				logger.error("get host IP error");
+			}
 		}
 		return ipAddress;
+	}
+
+	private static boolean checkVariable(String ipAddress) {
+		return (ipAddress == null) || (ipAddress.length() == 0) || ("unknown".equalsIgnoreCase(ipAddress));
 	}
 }

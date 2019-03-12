@@ -3,7 +3,7 @@ package com.w15104.dataengine.study.utils;
 import java.util.UUID;
 
 /**
-* PKUtil.java
+* UUID 32位序列号生生工具类
 *
 * @version 1.0.0
 *
@@ -16,11 +16,12 @@ import java.util.UUID;
 public final class PKUtil
 {
   /**
- * 功能描述：生成32位序列号
- * @return
- */
-public static String getUUID()
+   * 获取UUID,生成32位序列号
+   * @return String uuid
+   */
+  public static String getUUID()
   {
     return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
   }
+
 }

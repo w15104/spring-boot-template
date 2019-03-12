@@ -35,6 +35,10 @@ public enum ErrorCode {
     E_00009("AES 解密异常", "AES decrypt error"),
 
     E_00010("对象拷贝失败", "Object copy error"),
+
+    E_00011("文件下载异常", "Download file error"),
+
+    E_00012("写入文件失败", "Write wo file error"),
     ;
 
     /**
