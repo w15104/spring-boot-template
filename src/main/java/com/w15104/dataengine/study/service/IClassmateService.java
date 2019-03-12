@@ -1,5 +1,6 @@
 package com.w15104.dataengine.study.service;
 
+import com.w15104.dataengine.study.basic.CommonException;
 import com.w15104.dataengine.study.entity.Classmate;
 
 import java.util.List;
@@ -17,5 +18,5 @@ import java.util.List;
  */
 public interface IClassmateService {
 
-    List<Classmate> findClassByID(String id);
+    List<Classmate> findClassByID(String id)throws CommonException;
 }

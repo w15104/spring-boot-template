@@ -1,5 +1,6 @@
 package com.w15104.dataengine.study.controller;
 
+import com.w15104.dataengine.study.basic.CommonException;
 import com.w15104.dataengine.study.basic.Result;
 import com.w15104.dataengine.study.basic.ResultUtil;
 import com.w15104.dataengine.study.entity.Classmate;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.nio.charset.CoderMalfunctionError;
 import java.util.List;
 
 /*
@@ -38,7 +40,7 @@ public class ClassmateController {
      */
     @RequestMapping(value = "/get/{id}")
     @ResponseBody
-    public Result<List<Classmate>> findClassByID(@PathVariable String id){
+    public Result<List<Classmate>> findClassByID(@PathVariable String id)throws CommonException {
         //返回访问值
         return ResultUtil.ok(classmateService.findClassByID(id));
     }
