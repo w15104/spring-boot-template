@@ -1,8 +1,8 @@
 package com.w15104.dataengine.study.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.w15104.dataengine.study.basic.CommonException;
-import com.w15104.dataengine.study.basic.ErrorCode;
+import com.w15104.dataengine.study.basic.exception.CommonException;
+import com.w15104.dataengine.study.basic.exception.ErrorCode;
 import com.w15104.dataengine.study.mapper.ProductMapper;
 import com.w15104.dataengine.study.entity.Product;
 import com.w15104.dataengine.study.service.IProductService;

@@ -1,6 +1,6 @@
 package com.w15104.dataengine.study.service;
 
-import com.w15104.dataengine.study.basic.CommonException;
+import com.w15104.dataengine.study.basic.exception.CommonException;
 import com.w15104.dataengine.study.entity.Classmate;
 
 import java.util.List;

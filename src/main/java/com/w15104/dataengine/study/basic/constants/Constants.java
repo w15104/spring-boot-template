@@ -1,4 +1,4 @@
-package com.w15104.dataengine.study.basic;
+package com.w15104.dataengine.study.basic.constants;
 
 
 /*
