@@ -1,68 +1,59 @@
 package com.w15104.dataengine.study.utils;
 
+import java.util.Locale;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-public class RequestContextUtil {
-	
-	private RequestContextUtil () {
-	}
-	public static final String SYS_USER = "sysUser";
+public class RequestContextUtil{
 
-	
-	/**
-	 * 功能描述：构造请求上下文
-	 * @return
-	 * @author w14100 2017年11月12日
-	 */
-	public static RequestContext getContext() {
-		
-		if (RequestContextHolder.getRequestAttributes() == null) {
-			return null;
-		}
-		HttpServletRequest req = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
-		RequestContext requestContext = new RequestContext();
-		requestContext.setRequest(req);
-		requestContext.setSession(req.getSession());
-		return requestContext;
-	}
+  /**
+   * 从Reques中获取IP
+   * @return IP
+   */
+  public static String getIP()
+  {
+    HttpServletRequest request = getRequest();
+    return IPUtils.getIpAddr(request);
+  }
 
+  /**
+   * 获取HttpServletRequest
+   * @return HttpServletRequest
+   */
+  public static HttpServletRequest getRequest() {
+    if (RequestContextHolder.getRequestAttributes() == null) {
+      return null;
+    }
+    return ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
+  }
 
-	public static HttpServletRequest getRequest() {
-		if (RequestContextHolder.getRequestAttributes() == null) {
-			return null;
-		}
-		return ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
-	}
+  /**
+   * 获取ServletContext
+   * @return ServletContext
+   */
+  public static ServletContext getServletContext()
+  {
+    HttpServletRequest request = getRequest();
+    if (request != null) {
+      return request.getSession().getServletContext();
+    }
+    return null;
+  }
 
+  /**
+   * 获取系统显示语言
+   * @return Locale
+   */
+  public static Locale getCurrentLocale()
+  {
+    HttpServletRequest request = getRequest();
+    Locale locale = null;
+    if (request != null) {
+      locale = (Locale)request.getSession().getAttribute("locale");
+    }
+    return locale == null ? Locale.SIMPLIFIED_CHINESE : locale;
+  }
 
-	/**
-	 * 功能描述：获取当前登录人ID
-	 * @return
-	 * @author w15104 2017年11月12日
-	 */
-/*	public static String getCurrentUserID()
-		{
-			User su = getCurrentUser();
-			if (su != null) {
-				return su.getId();
-			}
-			return null;
-		}*/
-
-	/**
-	 * 功能描述：获取当前登录人信息
-	 * @return
-	 * @author w15104 2017年11月12日
-	 */
-/*	public static User getCurrentUser()
-		{
-			RequestContext context = getContext();
-			if (context != null) {
-				return (User)context.getRequest().getSession().getAttribute(SYS_USER);
-			}
-			return null;
-		}*/
 }
