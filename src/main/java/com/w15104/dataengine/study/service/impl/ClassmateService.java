@@ -3,8 +3,10 @@ package com.w15104.dataengine.study.service.impl;
 import com.w15104.dataengine.study.mapper.ClassmateMapper;
 import com.w15104.dataengine.study.entity.Classmate;
 import com.w15104.dataengine.study.service.IClassmateService;
-import org.springframework.stereotype.Service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -21,6 +23,9 @@ import java.util.List;
  */
 @Service
 public class ClassmateService implements IClassmateService {
+	
+	private final static Logger logger = LoggerFactory.getLogger(ClassmateService.class);
+	
 
     @Resource
     private ClassmateMapper classmateMapper;
@@ -32,6 +37,7 @@ public class ClassmateService implements IClassmateService {
      * @return  List<Classmate>
      */
     public  List<Classmate> findClassByID(String id){
+    	logger.info("查询信息 ID = %s", id);
        return classmateMapper.findClassByID(id);
     }
 }

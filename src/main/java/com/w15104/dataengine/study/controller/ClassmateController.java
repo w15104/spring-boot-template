@@ -1,7 +1,7 @@
 package com.w15104.dataengine.study.controller;
 
-import com.w15104.dataengine.study.basic.Result;
-import com.w15104.dataengine.study.basic.ResultUtil;
+import com.w15104.dataengine.study.basic.config.Result;
+import com.w15104.dataengine.study.basic.util.ResultUtil;
 import com.w15104.dataengine.study.entity.Classmate;
 import com.w15104.dataengine.study.service.IClassmateService;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,6 +1,7 @@
-package com.w15104.dataengine.study.basic;
+package com.w15104.dataengine.study.basic.config;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.w15104.dataengine.study.basic.exception.ErrorCode;
 
 import java.io.Serializable;
 

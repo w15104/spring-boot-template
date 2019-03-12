@@ -1,5 +1,7 @@
-package com.w15104.dataengine.study.basic;
+package com.w15104.dataengine.study.basic.util;
 
+import com.w15104.dataengine.study.basic.config.Result;
+import com.w15104.dataengine.study.basic.exception.ErrorCode;
 import com.w15104.dataengine.study.service.IClassmateService;
 import org.springframework.stereotype.Component;
 
