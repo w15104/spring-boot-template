@@ -98,7 +98,7 @@ public static final ContextUtil getInstance() {
   /**
   * 功能描述：从Spring容器中获取已加载的对象实例
   * 
-  * @param  beanName 对象名
+  * @param  beanName 对象名（beanId）
   * @return Object 容器对象实例
   * @author w14100 2017年11月12日
   */
