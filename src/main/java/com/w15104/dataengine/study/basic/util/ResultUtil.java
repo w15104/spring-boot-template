@@ -21,8 +21,6 @@ import javax.annotation.Resource;
 @Component
 public class ResultUtil {
 
-    private ResultUtil(){}
-
     /**
      * 构造成功报文
      * @param data 报文内容

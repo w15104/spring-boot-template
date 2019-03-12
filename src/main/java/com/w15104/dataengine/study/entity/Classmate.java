@@ -3,7 +3,10 @@ package com.w15104.dataengine.study.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
 import java.util.List;
+
+import org.springframework.stereotype.Component;
 
 /*
  *
@@ -18,17 +21,19 @@ import java.util.List;
  */
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class Classmate {
+//@Component
+public class Classmate implements Serializable{
 
+	private static final Long serialVersionUid = 1L;
     /**
      * 班级ID
      */
-    private String classId;
+    public String classId;
 
     /**
      * 教师数量
      */
-    private String teacherNum;
+    public String teacherNum;
 
     /**
      * 学生数量
@@ -55,6 +60,4 @@ public class Classmate {
      * 教师列表
      */
     private List<Teacher> teacherList;
-
-
 }

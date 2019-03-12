@@ -15,6 +15,10 @@ import springfox.documentation.service.ApiInfo;
 @EnableSwagger2
 public class Swagger2 {
 
+	/**
+	 * 创建restapi描述
+	 * @return
+	 */
 	@Bean
 	public Docket createRestApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
@@ -25,12 +29,16 @@ public class Swagger2 {
 				.build();
 	}
 	
+	/**
+	 * 接口描述
+	 * @return
+	 */
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder()
 				.title("标题")
 				.description("描述")
 				// .termsOfServiceUrl("test") 服务条款
-				// .contact("test") 联系人
+				// .contact("test") 联系信息
 				.version("1.1") 
 				.build();
 	}

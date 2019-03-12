@@ -4,11 +4,15 @@ import com.w15104.dataengine.study.basic.config.Result;
 import com.w15104.dataengine.study.basic.util.ResultUtil;
 import com.w15104.dataengine.study.entity.Classmate;
 import com.w15104.dataengine.study.service.IClassmateService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -23,6 +27,7 @@ import java.util.List;
  * @modified date:
  * @modified no:
  */
+@Api(tags="班级管理", description="班级信息")
 @RestController
 @RequestMapping("classmate")
 public class ClassmateController {
@@ -36,11 +41,15 @@ public class ClassmateController {
      * @param id 班級ID
      * @return List<Classmate> 班級信息列表
      */
+    @ApiOperation(value = "根据班级ID获得信息列表", httpMethod = "GET", code = 200)
+    @ApiImplicitParam(name = "id", value = "班级ID", required = true, dataType = "String", paramType = "path")
+    @ApiResponse(code = 200, message = "操作成功", response = Result.class)
     @RequestMapping(value = "/get/{id}")
     @ResponseBody
     public Result<List<Classmate>> findClassByID(@PathVariable String id){
         //返回访问值
-        return ResultUtil.ok(classmateService.findClassByID(id));
+    	List<Classmate> test= classmateService.findClassByID(id);
+        return ResultUtil.ok(test);
     }
 
 }

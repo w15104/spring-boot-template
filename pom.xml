@@ -1,210 +1,240 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.w15104.bigdata</groupId>
-    <artifactId>deos-demo</artifactId>
-    <version>1.0.0</version>
-    <packaging>war</packaging>
-    <name>deos-test</name>
+	<groupId>com.w15104.bigdata</groupId>
+	<artifactId>deos-demo</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+	<name>deos-test</name>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 
-        <druid.version>1.1.10</druid.version>
-        <lombok.version>1.18.2</lombok.version>
-        <spring-boot-version>1.5.8.RELEASE</spring-boot-version>
-        <log4j-version>1.3.8.RELEASE</log4j-version>
-        <mysql-connector-java-vewrsion>5.1.46</mysql-connector-java-vewrsion>
-        <mybatis-spring-boot-starter-version>1.3.1</mybatis-spring-boot-starter-version>
-        <pagehelper-spring-boot-starter-version>1.1.2</pagehelper-spring-boot-starter-version>
-        
-        <!-- swagger -->
-        <swagger-version>2.6.0</swagger-version>
-        <snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
+		<druid.version>1.1.10</druid.version>
+		<lombok.version>1.18.2</lombok.version>
+		<spring-boot-version>1.5.8.RELEASE</spring-boot-version>
+		<log4j-version>1.3.8.RELEASE</log4j-version>
+		<mysql-connector-java-vewrsion>5.1.46</mysql-connector-java-vewrsion>
+		<mybatis-spring-boot-starter-version>1.3.1</mybatis-spring-boot-starter-version>
+		<pagehelper-spring-boot-starter-version>1.1.2</pagehelper-spring-boot-starter-version>
 
-        <asciidoctor.input.directory>${project.basedir}/docs/asciidoc</asciidoctor.input.directory>
-        <generated.asciidoc.directory>${project.build.directory}/asciidoc</generated.asciidoc.directory>
-        <asciidoctor.html.output.directory>${project.build.directory}/asciidoc/html</asciidoctor.html.output.directory>
-        <asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
-    </properties>
+		<!-- swagger -->
+		<swagger-version>2.6.0</swagger-version>
+		<snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
 
-    <dependencies>
+		<asciidoctor.input.directory>${project.basedir}/docs/asciidoc</asciidoctor.input.directory>
+		<generated.asciidoc.directory>${project.build.directory}/asciidoc</generated.asciidoc.directory>
+		<asciidoctor.html.output.directory>${project.build.directory}/asciidoc/html</asciidoctor.html.output.directory>
+		<asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
 
-        <!-- springboot -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <version>${spring-boot-version}</version>
-            <!-- <exclusions>
-                先把springboot默认的日志starter给排除掉，再使用自定义的日志组件
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions> -->
-        </dependency>
-        <!-- springboot集成的log4j日志组件 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j</artifactId>
-            <version>${log4j-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring-boot-version}</version>
-        </dependency>
+		<!-- aop切面 -->
+		<springboot-aop-version>1.6.11</springboot-aop-version>
 
-        <!-- 数据库 -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql-connector-java-vewrsion}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>${druid.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis-spring-boot-starter-version}</version>
-        </dependency>
-        <!-- 测试 -->
+	</properties>
+
+	<dependencies>
+
+		<!-- springboot -->
 		<dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
-        
-        <!-- 分页插件 -->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>${pagehelper-spring-boot-starter-version}</version>
-        </dependency>
-
-        <!-- lombok 插件 -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-        </dependency>
-        
-        <!--  swagger 配置  -->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger-version}</version>
-        </dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<version>${spring-boot-version}</version>
+			<!-- <exclusions> 先把springboot默认的日志starter给排除掉，再使用自定义的日志组件 <exclusion> 
+				<groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-logging</artifactId> 
+				</exclusion> </exclusions> -->
+		</dependency>
+		<!-- springboot集成的log4j日志组件 -->
 		<dependency>
-		    <groupId>org.springframework.restdocs</groupId>
-		    <artifactId>spring-restdocs-mockmvc</artifactId>
-		    <version>1.1.2.RELEASE</version>
-		    <scope>test</scope>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j</artifactId>
+			<version>${log4j-version}</version>
 		</dependency>
 		<dependency>
-		     <groupId>io.springfox</groupId>
-		     <artifactId>springfox-staticdocs</artifactId>
-		     <version>${swagger-version}</version>
-		     <scope>test</scope>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring-boot-version}</version>
 		</dependency>
-		
-    </dependencies>
 
-    <build>
-        <finalName>springboot-test</finalName>
-        <plugins>
-            <!--Maven通过Maven Surefire Plugin插件执行单元测试-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <testFailureIgnore>true</testFailureIgnore>
-                </configuration>
-            </plugin>
-            <!-- Run the generated asciidoc through Asciidoctor to generate
-                 other documentation types, such as PDFs or HTML5 -->
-            <!--通过Asciidoctor使得asciidoc生成其他的文档格式，例如：PDF 或者HTML5-->
-            <plugin>
-                <groupId>org.asciidoctor</groupId>
-                <artifactId>asciidoctor-maven-plugin</artifactId>
-                <version>1.5.3</version>
-                <!-- Include Asciidoctor PDF for pdf generation -->
-                <!--生成PDF-->
-                <dependencies>
-                    <dependency>
-                        <groupId>org.asciidoctor</groupId>
-                        <artifactId>asciidoctorj-pdf</artifactId>
-                        <version>1.5.0-alpha.14</version>
-                    </dependency>
+		<!-- 数据库 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector-java-vewrsion}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>${mybatis-spring-boot-starter-version}</version>
+		</dependency>
+		<!-- 测试 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
 
-                    <!-- Comment this section to use the default jruby artifact provided by the plugin -->
-                    <dependency>
-                        <groupId>org.jruby</groupId>
-                        <artifactId>jruby-complete</artifactId>
-                        <version>1.7.21</version>
-                    </dependency>
-                </dependencies>
+		<!-- 分页插件 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>${pagehelper-spring-boot-starter-version}</version>
+		</dependency>
 
-                <!-- Configure generic document generation settings -->
-                <!--文档生成配置-->
-                <configuration>
-                    <sourceDirectory>${asciidoctor.input.directory}</sourceDirectory>
-                    <sourceDocumentName>index.adoc</sourceDocumentName>
-                    <attributes>
-                        <doctype>book</doctype>
-                        <toc>left</toc>
-                        <toclevels>3</toclevels>
-                        <numbered></numbered>
-                        <hardbreaks></hardbreaks>
-                        <sectlinks></sectlinks>
-                        <sectanchors></sectanchors>
-                        <generated>${generated.asciidoc.directory}</generated>
-                    </attributes>
-                </configuration>
-                <!-- Since each execution can only handle one backend, run
-                   separate executions for each desired output type -->
-                <!--因为每次执行只能处理一个后端，所以对于每个想要的输出类型，都是独立分开执行-->
-                <executions>
-                    <!--html5-->
-                    <execution>
-                        <id>output-html</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>process-asciidoc</goal>
-                        </goals>
-                        <configuration>
-                            <backend>html5</backend>
-                            <outputDirectory>${asciidoctor.html.output.directory}</outputDirectory>
-                        </configuration>
-                    </execution>
-                    <!--pdf 目前pdf生产会有问题，可采取html用Word文档打开再另存为的形式-->
-                   <execution>
-                        <id>output-pdf</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>process-asciidoc</goal>
-                        </goals>
-                        <configuration>
-                            <backend>pdf</backend>
-                            <outputDirectory>${asciidoctor.pdf.output.directory}</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+		<!-- lombok 插件 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
+		<!-- 热部署 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<version>${spring-boot-version}</version>
+			<optional>true</optional>
+			<!-- <scope>test</scope> -->
+		</dependency>
+		<!-- AOP切面 -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${springboot-aop-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${springboot-aop-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>4.3.9.RELEASE</version>
+		</dependency>
+
+		<!-- swagger 配置 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${swagger-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${swagger-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.restdocs</groupId>
+			<artifactId>spring-restdocs-mockmvc</artifactId>
+			<version>1.1.2.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-staticdocs</artifactId>
+			<version>${swagger-version}</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>springboot-test</finalName>
+		<plugins>
+			<!--Maven通过Maven Surefire Plugin插件执行单元测试 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
+			<!-- Run the generated asciidoc through Asciidoctor to generate other 
+				documentation types, such as PDFs or HTML5 -->
+			<!--通过Asciidoctor使得asciidoc生成其他的文档格式，例如：PDF 或者HTML5 -->
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<version>1.5.3</version>
+				<!-- Include Asciidoctor PDF for pdf generation -->
+				<!--生成PDF -->
+				<dependencies>
+					<dependency>
+						<groupId>org.asciidoctor</groupId>
+						<artifactId>asciidoctorj-pdf</artifactId>
+						<version>1.5.0-alpha.14</version>
+					</dependency>
+
+					<!-- Comment this section to use the default jruby artifact provided 
+						by the plugin -->
+					<dependency>
+						<groupId>org.jruby</groupId>
+						<artifactId>jruby-complete</artifactId>
+						<version>1.7.21</version>
+					</dependency>
+				</dependencies>
+
+				<!-- Configure generic document generation settings -->
+				<!--文档生成配置 -->
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+					<sourceDirectory>${asciidoctor.input.directory}</sourceDirectory>
+					<sourceDocumentName>index.adoc</sourceDocumentName>
+					<attributes>
+						<doctype>book</doctype>
+						<toc>left</toc>
+						<toclevels>3</toclevels>
+						<numbered></numbered>
+						<hardbreaks></hardbreaks>
+						<sectlinks></sectlinks>
+						<sectanchors></sectanchors>
+						<generated>${generated.asciidoc.directory}</generated>
+					</attributes>
+				</configuration>
+				<!-- Since each execution can only handle one backend, run separate executions 
+					for each desired output type -->
+				<!--因为每次执行只能处理一个后端，所以对于每个想要的输出类型，都是独立分开执行 -->
+				<executions>
+					<!--html5 -->
+					<execution>
+						<id>output-html</id>
+						<phase>test</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>html5</backend>
+							<outputDirectory>${asciidoctor.html.output.directory}</outputDirectory>
+						</configuration>
+					</execution>
+					<!--pdf 目前pdf生产会有问题，可采取html用Word文档打开再另存为的形式 -->
+					<execution>
+						<id>output-pdf</id>
+						<phase>test</phase>
+						<goals>
+							<goal>process-asciidoc</goal>
+						</goals>
+						<configuration>
+							<backend>pdf</backend>
+							<outputDirectory>${asciidoctor.pdf.output.directory}</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

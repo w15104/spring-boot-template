@@ -6,6 +6,12 @@ import com.w15104.dataengine.study.basic.exception.CommonException;
 import com.w15104.dataengine.study.basic.util.ResultUtil;
 import com.w15104.dataengine.study.entity.Product;
 import com.w15104.dataengine.study.service.IProductService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,6 +31,7 @@ import java.util.List;
  * @modified date:
  * @modified no:
  */
+@Api(tags="商品管理", description="123")
 @RestController
 @RequestMapping("product")
 public class ProductController {
@@ -39,6 +46,11 @@ public class ProductController {
      * @param pageSize 每页数量
      * @return PageInfo 分页信息
      */
+    @ApiOperation(value = "根据页码和单页数量查询", httpMethod = "GET", code = 200)
+    @ApiImplicitParams({
+        @ApiImplicitParam(name = "pageNo", value = "查询第几页", required = true),
+        @ApiImplicitParam(name = "pageSize", value = "分页长度", required = true)
+    })
     @RequestMapping(value = "/getPage/{pageNo}/{pageSize}}")
     @ResponseBody
     public Result<PageInfo> getPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize)throws CommonException{
@@ -51,6 +63,7 @@ public class ProductController {
      * 获取所有产品信息
      * @return List<Product>
      */
+    @ApiOperation(value = "获得所有的商品信息", httpMethod = "GET", code = 200)
     @RequestMapping(value = "/getAll")
     @ResponseBody
     public Result<List<Product>> getAll() throws CommonException{
@@ -62,6 +75,7 @@ public class ProductController {
      * @param product 产品信息
      * @return String
      */
+    @ApiOperation(value = "添加商品信息", httpMethod = "GET", code = 200)
     @RequestMapping(value = "/add")
     @ResponseBody
     public Result<String> addProduct(Product product)throws CommonException{
@@ -74,6 +88,8 @@ public class ProductController {
      * @param id 产品ID
      * @return String
      */
+    @ApiOperation(value = "删除商品信息", httpMethod = "GET", code = 200)
+    @ApiImplicitParam(name = "id", value = "商品id", required = true)
     @RequestMapping(value = "/delete/{id}")
     @ResponseBody
     public Result<String> detete(@PathVariable  Integer id) throws CommonException{
@@ -82,10 +98,11 @@ public class ProductController {
     }
 
     /**
-     *:删除商品
+     *:根据ID获得信息
      * @param id 产品ID
      * @return String
      */
+    @ApiOperation(value = "根据ID获得信息", httpMethod = "GET", code = 200)
     @RequestMapping(value = "/get/{id}")
     @ResponseBody
     public Result<Product> get(@PathVariable  Integer id) throws CommonException{
