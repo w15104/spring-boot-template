@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 /*
  *
- * @description IP工具类
+ * @Description IP工具类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -45,8 +45,7 @@ public class IPUtils {
 	 * @return
 	 * @author w15104 2017年11月12日
 	 */
-	public static String getIpAddr(HttpServletRequest request)
-	{
+	public static String getIpAddr(HttpServletRequest request) {
 		String ipAddress = null;
 		if (request != null) {
 			ipAddress = request.getHeader("x-forwarded-for");

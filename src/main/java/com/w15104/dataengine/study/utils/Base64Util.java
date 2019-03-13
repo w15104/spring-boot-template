@@ -5,7 +5,7 @@ import org.apache.commons.codec.binary.Base64;
 
 /*
  *
- * @description Base64编码工具类
+ * @Description Base64编码工具类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -14,8 +14,7 @@ import org.apache.commons.codec.binary.Base64;
  * @modified date:
  * @modified no:
  */
-public class Base64Util
-{
+public class Base64Util {
 
   /**
    * Base64解码

@@ -22,7 +22,7 @@ import java.util.List;
 
 /*
  *
- * @description 产品控制器
+ * @Description 产品控制器
  *
  * @author w15104
  * @data: 2019-3-5
@@ -53,7 +53,7 @@ public class ProductController {
     })
     @RequestMapping(value = "/getPage/{pageNo}/{pageSize}}")
     @ResponseBody
-    public Result<PageInfo> getPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize)throws CommonException{
+    public Result<PageInfo> getPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize)throws CommonException {
         List<Product> products = productService.getListWithPage(pageNo,pageSize);
         PageInfo<Product> pageInfo = new PageInfo<>(products);
         return ResultUtil.ok(pageInfo);
@@ -66,7 +66,7 @@ public class ProductController {
     @ApiOperation(value = "获得所有的商品信息", httpMethod = "GET", code = 200)
     @RequestMapping(value = "/getAll")
     @ResponseBody
-    public Result<List<Product>> getAll() throws CommonException{
+    public Result<List<Product>> getAll() throws CommonException {
         return ResultUtil.ok(productService.getListWithPage(null,null));
     }
 
@@ -78,7 +78,7 @@ public class ProductController {
     @ApiOperation(value = "添加商品信息", httpMethod = "GET", code = 200)
     @RequestMapping(value = "/add")
     @ResponseBody
-    public Result<String> addProduct(Product product)throws CommonException{
+    public Result<String> addProduct(Product product)throws CommonException {
         productService.add(product);
         return ResultUtil.ok();
     }
@@ -92,7 +92,7 @@ public class ProductController {
     @ApiImplicitParam(name = "id", value = "商品id", required = true)
     @RequestMapping(value = "/delete/{id}")
     @ResponseBody
-    public Result<String> detete(@PathVariable  Integer id) throws CommonException{
+    public Result<String> detete(@PathVariable  Integer id) throws CommonException {
         productService.deleteById(id);
         return ResultUtil.ok();
     }
@@ -105,7 +105,8 @@ public class ProductController {
     @ApiOperation(value = "根据ID获得信息", httpMethod = "GET", code = 200)
     @RequestMapping(value = "/get/{id}")
     @ResponseBody
-    public Result<Product> get(@PathVariable  Integer id) throws CommonException{
+    public Result<Product> get(@PathVariable  Integer id) throws CommonException {
         return ResultUtil.ok(productService.getById(id));
     }
+
 }

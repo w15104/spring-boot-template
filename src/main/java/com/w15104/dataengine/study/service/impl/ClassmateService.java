@@ -12,9 +12,10 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
+
 /*
  *
- * @description 班级服务
+ * @Description 班级服务
  *
  * @author w15104
  * @data: 2019-3-5
@@ -25,13 +26,17 @@ import java.util.List;
  */
 @Service
 public class ClassmateService implements IClassmateService {
-	
-	private final static Logger logger = LoggerFactory.getLogger(ClassmateService.class);
-	
 
+    /**
+     * 日志
+     */
+	private final static Logger logger = LoggerFactory.getLogger(ClassmateService.class);
+
+    /**
+     * 获取ClassmateMapper
+     */
     @Resource
     private ClassmateMapper classmateMapper;
-
 
     /**
      *  根据ID查找班级信息
@@ -39,7 +44,7 @@ public class ClassmateService implements IClassmateService {
      * @return  List<Classmate>
      */
 
-    public  List<Classmate> findClassByID(String id)throws CommonException{
+    public  List<Classmate> findClassByID(String id)throws CommonException {
         try {
             logger.info("查询信息 ID = %s", id);
             return classmateMapper.findClassByID(id);

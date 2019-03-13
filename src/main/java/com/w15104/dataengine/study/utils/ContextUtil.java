@@ -6,7 +6,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /*
  *
- * @description Spring 上下文工具类
+ * @Description Spring 上下文工具类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -68,8 +68,7 @@ public static final ContextUtil getInstance() {
   /**
   * 私有构造方法
   */
-  private ContextUtil()
-  {
+  private ContextUtil() {
     servletContext = null;
     springContext = null;
   }
@@ -78,8 +77,7 @@ public static final ContextUtil getInstance() {
   * 功能描述：容器或服务关闭时清除上细文
   * @author w14100 2017年11月12日
   */
-  public void cleanup()
-  {
+  public void cleanup() {
     servletContext = null;
     springContext = null;
   }
@@ -89,8 +87,7 @@ public static final ContextUtil getInstance() {
   * @param  servletContext
   * @author w14100 2017年11月12日
   */
-  public void init(ServletContext servletContext)
-  {
+  public void init(ServletContext servletContext) {
     this.servletContext = servletContext;
     springContext = WebApplicationContextUtils.getRequiredWebApplicationContext(servletContext);
   }

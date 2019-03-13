@@ -2,7 +2,7 @@ package com.w15104.dataengine.study.basic.exception;
 
 /*
  *
- * @description 自定义异常
+ * @Description 自定义异常
  *
  * @author w15104
  * @data: 2019-3-5
@@ -44,7 +44,7 @@ public class CommonException extends Exception{
      * @param code 错误码
      * @param cause 异常
      */
-    public CommonException(ErrorCode code, Throwable cause){
+    public CommonException(ErrorCode code, Throwable cause) {
         super( code.getMessageUS(), cause);
         this.code = code;
     }
@@ -53,7 +53,7 @@ public class CommonException extends Exception{
      * 构造函数
      * @param cause 异常
      */
-    public CommonException(Throwable cause){
+    public CommonException(Throwable cause) {
         super( cause);
     }
 
@@ -64,4 +64,5 @@ public class CommonException extends Exception{
     public ErrorCode getCode() {
         return code;
     }
+
 }

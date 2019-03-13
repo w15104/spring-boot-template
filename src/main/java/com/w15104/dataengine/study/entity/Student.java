@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 
 /*
  *
- * @description 学生实体类
+ * @Description 学生实体类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -42,6 +42,5 @@ public class Student {
      * 家庭
      */
     private String family;
-
 
 }

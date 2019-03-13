@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 
 /*
  *
- * @description AES加密解密类
+ * @Description AES加密解密类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -61,6 +61,9 @@ public class AESUtil {
     private static Cipher encode;
     private static Cipher decode;
 
+    /**
+     * 静态方法，在初始化类时候执行
+     */
     static {
         try {
             SecretKeySpec keySpec = new SecretKeySpec(KEY.getBytes("utf-8"), "AES");
@@ -80,7 +83,6 @@ public class AESUtil {
         }
     }
 
-
     /**
      * AES 加密
      * @param clearPwd 明文字符串
@@ -96,7 +98,6 @@ public class AESUtil {
             throw new CommonException(ErrorCode.E_00008, e);
         }
     }
-
 
     /**
      * AES 解密

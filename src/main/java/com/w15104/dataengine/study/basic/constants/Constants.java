@@ -3,7 +3,7 @@ package com.w15104.dataengine.study.basic.constants;
 
 /*
  *
- * @description 常量类
+ * @Description 常量类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -28,8 +28,5 @@ public class Constants {
      * FORMAT4格式
      */
     public static final String FORMAT4 = "%s%s%s%s";
-
-
-
 
 }

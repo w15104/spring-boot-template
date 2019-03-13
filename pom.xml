@@ -213,7 +213,6 @@
 				<!-- Configure generic document generation settings -->
 				<!--文档生成配置 -->
 				<configuration>
-					<testFailureIgnore>true</testFailureIgnore>
 					<sourceDirectory>${asciidoctor.input.directory}</sourceDirectory>
 					<sourceDocumentName>index.adoc</sourceDocumentName>
 					<attributes>

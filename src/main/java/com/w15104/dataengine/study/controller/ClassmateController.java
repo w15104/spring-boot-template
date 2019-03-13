@@ -21,7 +21,7 @@ import java.util.List;
 
 /*
  *
- * @description 班级控制器
+ * @Description 班级控制器
  *
  * @author w15104
  * @data: 2019-3-5
@@ -35,7 +35,9 @@ import java.util.List;
 @RequestMapping("classmate")
 public class ClassmateController {
 
-    //获取班级服务类
+    /**
+     * 获取班级服务类
+     */
     @Resource
     private IClassmateService classmateService;
 

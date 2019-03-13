@@ -6,14 +6,24 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-public class RequestContextUtil{
+/*
+ *
+ * @Description RequestContextUtil工具类
+ *
+ * @author w15104
+ * @data: 2019-3-5
+ *
+ * @modified by:
+ * @modified date:
+ * @modified no:
+ */
+public class RequestContextUtil {
 
   /**
    * 从Reques中获取IP
    * @return IP
    */
-  public static String getIP()
-  {
+  public static String getIP() {
     HttpServletRequest request = getRequest();
     return IPUtils.getIpAddr(request);
   }
@@ -33,8 +43,7 @@ public class RequestContextUtil{
    * 获取ServletContext
    * @return ServletContext
    */
-  public static ServletContext getServletContext()
-  {
+  public static ServletContext getServletContext() {
     HttpServletRequest request = getRequest();
     if (request != null) {
       return request.getSession().getServletContext();
@@ -46,8 +55,7 @@ public class RequestContextUtil{
    * 获取系统显示语言
    * @return Locale
    */
-  public static Locale getCurrentLocale()
-  {
+  public static Locale getCurrentLocale() {
     HttpServletRequest request = getRequest();
     Locale locale = null;
     if (request != null) {

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /*
  *
- * @description 班级实体类
+ * @Description 班级实体类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -21,10 +21,8 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @EqualsAndHashCode(callSuper=false)
-//@Component
-public class Classmate implements Serializable{
+public class Classmate {
 
-	private static final Long serialVersionUid = 1L;
     /**
      * 班级ID
      */
@@ -60,4 +58,5 @@ public class Classmate implements Serializable{
      * 教师列表
      */
     private List<Teacher> teacherList;
+
 }
