@@ -1,6 +1,6 @@
 package com.w15104.dataengine.study;
 
-import com.w15104.dataengine.study.utils.ContextUtil;
+import com.w15104.dataengine.study.basic.util.ContextUtil;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.w15104.dataengine.study.utils;
+package com.w15104.dataengine.study.basic.util;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;

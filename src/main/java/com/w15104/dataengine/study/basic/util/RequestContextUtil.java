@@ -1,4 +1,4 @@
-package com.w15104.dataengine.study.utils;
+package com.w15104.dataengine.study.basic.util;
 
 import java.util.Locale;
 import javax.servlet.ServletContext;
