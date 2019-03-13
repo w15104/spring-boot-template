@@ -51,7 +51,7 @@ public class ProductController {
         @ApiImplicitParam(name = "pageNo", value = "查询第几页", required = true),
         @ApiImplicitParam(name = "pageSize", value = "分页长度", required = true)
     })
-    @RequestMapping(value = "/getPage/{pageNo}/{pageSize}}")
+    @RequestMapping(value = "/getPage/{pageNo}/{pageSize}")
     @ResponseBody
     public Result<PageInfo> getPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize)throws CommonException {
         List<Product> products = productService.getListWithPage(pageNo,pageSize);
