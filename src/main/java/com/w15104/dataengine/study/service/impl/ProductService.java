@@ -50,6 +50,28 @@ public class ProductService implements IProductService {
     }
 
     /**
+     * 添加商品信息
+     * @param product 商品实体
+     */
+    public void updateByID(Product product) throws CommonException {
+
+        int result;
+
+
+        //if( getById(product) )
+
+        try {
+            result = productMapper.saveOrUpdate(product);
+        }catch (Exception e){
+            throw new CommonException(ErrorCode.E_00001, e);
+        }
+
+        if(result == 0){
+            throw new CommonException(ErrorCode.E_00001);
+        }
+    }
+
+    /**
      * 根据ID删除商品
      * @param id 商品ID
      */

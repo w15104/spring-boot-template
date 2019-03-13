@@ -39,7 +39,6 @@ public class ClassmateService implements IClassmateService {
      */
     public  List<Classmate> findClassByID(String id)throws CommonException {
         try {
-            log.info("查询信息 ID = %s", id);
             return classmateMapper.findClassByID(id);
          }catch (Exception e){
              throw new CommonException(ErrorCode.E_00003, e);

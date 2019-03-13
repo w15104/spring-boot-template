@@ -26,6 +26,13 @@ public interface ProductMapper {
     int saveOrUpdate(Product product);
 
     /**
+     * 更新或保存产品信息
+     * @param product 产品信息
+     * @return sql受影响的条数
+     */
+    int updateByID(Product product);
+
+    /**
      * 根据ID删除产品
      * @param id 产品ID
      * @return sql受影响的条数

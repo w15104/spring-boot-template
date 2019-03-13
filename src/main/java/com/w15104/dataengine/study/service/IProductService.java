@@ -20,6 +20,8 @@ public interface IProductService {
 
     void add(Product product) throws CommonException;
 
+    void updateByID(Product product) throws CommonException;
+
     void deleteById(Integer id)throws CommonException;
 
     Product getById(Integer id)throws CommonException;
