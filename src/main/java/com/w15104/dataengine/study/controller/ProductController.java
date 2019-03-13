@@ -84,6 +84,14 @@ public class ProductController {
         productService.add(product);
         return ResultUtil.ok();
     }
+    
+    @ApiOperation(value = "添加商品信息", httpMethod = "POST")
+    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @ResponseBody
+    public Result<String> updateProduct(@RequestBody Product product)throws CommonException {
+        productService.updateByID(product);
+        return ResultUtil.ok();
+    }
 
     /**
      *:删除商品

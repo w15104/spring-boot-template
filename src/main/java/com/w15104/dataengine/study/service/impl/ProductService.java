@@ -56,12 +56,8 @@ public class ProductService implements IProductService {
     public void updateByID(Product product) throws CommonException {
 
         int result;
-
-
-        //if( getById(product) )
-
         try {
-            result = productMapper.saveOrUpdate(product);
+            result = productMapper.updateByID(product);
         }catch (Exception e){
             throw new CommonException(ErrorCode.E_00001, e);
         }

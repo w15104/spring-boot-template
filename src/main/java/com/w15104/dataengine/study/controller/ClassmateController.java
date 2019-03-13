@@ -47,7 +47,7 @@ public class ClassmateController {
      */
     @ApiOperation(value = "根据班级ID获得信息列表", httpMethod = "GET", code = 200)
     @ApiImplicitParam(name = "id", value = "班级ID", required = true, dataType = "String", paramType = "path")
-    @ApiResponse(code = 401, message = "未失败", response = Result.class)
+    @ApiResponse(code = 401, message = "未认证", response = Result.class)
     @RequestMapping(value = "/get/{id}")
     @ResponseBody
     public Result<List<Classmate>> findClassByID(@PathVariable String id)throws CommonException {
