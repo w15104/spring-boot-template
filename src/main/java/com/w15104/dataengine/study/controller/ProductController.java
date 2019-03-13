@@ -12,7 +12,13 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -39,8 +45,8 @@ public class ProductController {
 
     /**
      * 分页查询产品信息 http://localhost:8181/wfh/product/getPage
-     * @param no: 查询第几页
-     * @param size 每页数量
+     * @param pageNo: 查询第几页
+     * @param pageSize 每页数量
      * @return PageInfo 分页信息
      */
     @ApiOperation(value = "根据页码和单页数量查询", httpMethod = "GET")
@@ -48,10 +54,10 @@ public class ProductController {
         @ApiImplicitParam(name = "pageNo", value = "查询第几页", required = true),
         @ApiImplicitParam(name = "pageSize", value = "分页长度", required = true)
     })
-    @RequestMapping(value = "/get-page/{no}/{size}", headers = "Content-Type=application/json")
+    @RequestMapping(value = "/get-page/{pageNo}/{pageSize}", headers = "Content-Type=application/json")
     @ResponseBody
-    public Result<PageInfo> getPage(@PathVariable Integer no, @PathVariable Integer size)throws CommonException {
-        List<Product> products = productService.getListWithPage(no,size);
+    public Result<PageInfo> getPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize)throws CommonException {
+        List<Product> products = productService.getListWithPage(pageNo,pageSize);
         PageInfo<Product> pageInfo = new PageInfo<>(products);
         return ResultUtil.ok(pageInfo);
     }
@@ -79,7 +85,6 @@ public class ProductController {
         productService.add(product);
         return ResultUtil.ok();
     }
-
 
     /**
      * 添加商品
