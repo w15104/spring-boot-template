@@ -13,7 +13,7 @@ import java.util.List;
 
 /*
  *
- * @description 商品业务服务类
+ * @Description 商品业务服务类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -34,8 +34,10 @@ public class ProductService implements IProductService {
      * 添加商品信息
      * @param product 商品实体
      */
-    public void add(Product product) throws CommonException{
+    public void add(Product product) throws CommonException {
+
         int result;
+
         try {
             result = productMapper.saveOrUpdate(product);
         }catch (Exception e){
@@ -51,14 +53,16 @@ public class ProductService implements IProductService {
      * 根据ID删除商品
      * @param id 商品ID
      */
-    public void deleteById(Integer id)throws CommonException{
+    public void deleteById(Integer id)throws CommonException {
 
         int result;
+
         try {
              result = productMapper.deleteById(id);
         }catch (Exception e){
             throw new CommonException(ErrorCode.E_00002, e);
         }
+
         if(result == 0){
             throw new CommonException(ErrorCode.E_00007);
         }
@@ -69,7 +73,7 @@ public class ProductService implements IProductService {
      * @param id 商品ID
      * @return Product
      */
-    public Product getById(Integer id)throws CommonException{
+    public Product getById(Integer id)throws CommonException {
         try {
             return productMapper.getById(id);
         }catch (Exception e){
@@ -83,7 +87,7 @@ public class ProductService implements IProductService {
      * @param pageNo 开始页数
      * @param pageSize 每页显示的数据条数
     */
-    public List<Product> getListWithPage(Integer pageNo,Integer pageSize) throws CommonException{
+    public List<Product> getListWithPage(Integer pageNo,Integer pageSize) throws CommonException {
 
         //将参数传给这个方法就可以实现物理分页了，非常简单。
         try {

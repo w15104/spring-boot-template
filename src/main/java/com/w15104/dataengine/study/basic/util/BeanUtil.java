@@ -1,4 +1,4 @@
-package com.w15104.dataengine.study.utils;
+package com.w15104.dataengine.study.basic.util;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -8,7 +8,7 @@ import org.apache.commons.beanutils.BeanUtils;
 
 /*
  *
- * @description 对象操作工具类
+ * @Description 对象操作工具类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -28,7 +28,6 @@ public class BeanUtil {
    * @throws CommonException 异常
    */
   public static <T> T copyBean(Object origin, Class<T> clasz) throws CommonException {
-
     try {
       T t = clasz.newInstance();
       BeanUtils.copyProperties(t, origin);

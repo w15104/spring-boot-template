@@ -7,7 +7,7 @@ import java.util.List;
 
 /*
  *
- * @description 商品服务接口
+ * @Description 商品服务接口
  *
  * @author w15104
  * @data: 2019-3-5
@@ -25,4 +25,5 @@ public interface IProductService {
     Product getById(Integer id)throws CommonException;
 
     List<Product> getListWithPage(Integer pageNo, Integer pageSize) throws CommonException;
+
 }

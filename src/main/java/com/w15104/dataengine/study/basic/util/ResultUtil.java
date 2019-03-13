@@ -7,9 +7,10 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
+
 /*
  *
- * @description 返回结果封装工具操作类
+ * @Description 返回结果封装工具操作类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -44,7 +45,7 @@ public class ResultUtil {
      * @param isClinese 抛出错误的信息是否设置为中文
      * @return T
      */
-    public static <T> Result<T> error(ErrorCode code, Boolean isClinese){
+    public static <T> Result<T> error(ErrorCode code, Boolean isClinese) {
         return new Result<T>().setResult(false).setCode(code);
     }
 

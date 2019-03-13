@@ -7,7 +7,7 @@ import java.util.List;
 
 /*
  *
- * @description 班级服务接口
+ * @Description 班级服务接口
  *
  * @author w15104
  * @data: 2019-3-5
@@ -18,5 +18,6 @@ import java.util.List;
  */
 public interface IClassmateService {
 
-    List<Classmate> findClassByID(String id)throws CommonException;
+    List<Classmate> findClassByID(String id) throws CommonException;
+
 }

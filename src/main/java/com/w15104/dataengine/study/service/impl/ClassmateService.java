@@ -10,9 +10,10 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
+
 /*
  *
- * @description 班级服务
+ * @Description 班级服务
  *
  * @author w15104
  * @data: 2019-3-5
@@ -24,18 +25,19 @@ import java.util.List;
 @Service
 @Slf4j
 public class ClassmateService implements IClassmateService {
-	
+
+    /**
+     * 获取ClassmateMapper
+     */
     @Resource
     private ClassmateMapper classmateMapper;
-
 
     /**
      *  根据ID查找班级信息
      * @param id 班级ID
      * @return  List<Classmate>
      */
-
-    public  List<Classmate> findClassByID(String id)throws CommonException{
+    public  List<Classmate> findClassByID(String id)throws CommonException {
         try {
             log.info("查询信息 ID = %s", id);
             return classmateMapper.findClassByID(id);

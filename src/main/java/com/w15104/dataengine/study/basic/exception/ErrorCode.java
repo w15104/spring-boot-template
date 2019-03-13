@@ -1,8 +1,9 @@
 package com.w15104.dataengine.study.basic.exception;
 
+
 /*
  *
- * @description 错误编码类
+ * @Description 错误编码类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -12,7 +13,6 @@ package com.w15104.dataengine.study.basic.exception;
  * @modified no:
  */
 public enum ErrorCode {
-
 
     E_00000("未知错误", "unknown error"),
 

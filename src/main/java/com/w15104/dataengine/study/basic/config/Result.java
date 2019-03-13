@@ -5,8 +5,9 @@ import com.w15104.dataengine.study.basic.exception.ErrorCode;
 
 import java.io.Serializable;
 
+
 /*
- * @description 统一返回
+ * @Description 统一返回
  *
  * @author w15104
  * @data: 2019-3-5
@@ -17,7 +18,6 @@ import java.io.Serializable;
  */
 @JsonInclude
 public class Result<T> implements Serializable {
-
 
     /**
      * 成功标志

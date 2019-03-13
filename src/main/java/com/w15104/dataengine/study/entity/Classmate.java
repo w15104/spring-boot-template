@@ -6,7 +6,7 @@ import java.util.List;
 
 /*
  *
- * @description 班级实体类
+ * @Description 班级实体类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -54,4 +54,5 @@ public class Classmate {
      * 教师列表
      */
     private List<Teacher> teacherList;
+
 }

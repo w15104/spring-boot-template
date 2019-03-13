@@ -13,7 +13,7 @@ import java.util.Date;
 
 /*
  *
- * @description 产品实体类
+ * @Description 产品实体类
  *
  * @author w15104
  * @data: 2019-3-5

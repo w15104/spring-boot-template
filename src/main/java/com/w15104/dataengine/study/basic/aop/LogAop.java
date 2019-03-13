@@ -30,7 +30,7 @@ public class LogAop {
 	}
 	
 	@Before("serviceLog()")
-	public void doBefore(JoinPoint joinPoint) throws Throwable{
+	public void doBefore(JoinPoint joinPoint) throws Throwable {
 		// 接收到请求，获得参数
 		ServletRequestAttributes attributes = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
 		HttpServletRequest servletRequest = attributes.getRequest();

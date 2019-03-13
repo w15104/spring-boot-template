@@ -1,4 +1,4 @@
-package com.w15104.dataengine.study.utils;
+package com.w15104.dataengine.study.basic.util;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -27,7 +27,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 /*
  *
- * @description  文件工具类
+ * @Description  文件工具类
  *
  * @author w15104
  * @data: 2019-3-5
@@ -63,8 +63,7 @@ public class FileUtil extends FileUtils {
      * @param path 文件路径
      * @throws CommonException 异常
      */
-    public static void downloadFile(HttpServletResponse response, String path) throws CommonException
-    {
+    public static void downloadFile(HttpServletResponse response, String path) throws CommonException {
         InputStream fis = null;
         OutputStream toClient = null;
         try {
@@ -102,8 +101,7 @@ public class FileUtil extends FileUtils {
      * @param fileName 文件名
      * @throws CommonException 异常
      */
-    public static void downloadFileByFileName(HttpServletResponse response, String path, String fileName) throws CommonException
-    {
+    public static void downloadFileByFileName(HttpServletResponse response, String path, String fileName) throws CommonException {
         InputStream fis = null;
         OutputStream toClient = null;
         try {
@@ -161,8 +159,7 @@ public class FileUtil extends FileUtils {
      * @param type 包含字段
      * @return Lisy集合
      */
-    public static List<String> getListFiles(String path, String type) throws Exception
-    {
+    public static List<String> getListFiles(String path, String type) throws Exception {
         File directory = new File(path);
         List<String> files = new ArrayList<>();
         if (directory.isFile()) {
@@ -240,8 +237,7 @@ public class FileUtil extends FileUtils {
      * @throws CommonException CommonException
      */
     public static void writeToFile(File file, String str) throws CommonException {
-        try
-        {
+        try {
             writeStringToFile(file, str, Charset.forName("UTF-8"));
         } catch (Exception e) {
             logger.error("文件写入失败");
@@ -254,8 +250,7 @@ public class FileUtil extends FileUtils {
      * @param filename 文件名
      * @return String 扩展名
      */
-    public static String getExtension(String filename)
-    {
+    public static String getExtension(String filename) {
         if (filename == null) {
             return null;
         }

@@ -6,7 +6,7 @@ import java.util.List;
 
 /*
  *
- * @description 班级Mapper
+ * @Description 班级Mapper
  *
  * @author w15104
  * @data: 2019-3-5
@@ -23,4 +23,5 @@ public interface ClassmateMapper {
      * @return List<Classmate>
      */
     List<Classmate> findClassByID(String id);
+
 }
