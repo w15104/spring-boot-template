@@ -29,5 +29,8 @@
         SELECT <include refid="baseColumns"/> FROM product
     </select>
 
+    <select id="unpdateByID" parameterType="com.w15104.dataengine.study.entity.Product">
+        UPDATE product SET pname=#{pname}, price=#{price}, num=#{num}, type=#{type} WHERE id = #{id};
+    </select>
 
 </mapper>
