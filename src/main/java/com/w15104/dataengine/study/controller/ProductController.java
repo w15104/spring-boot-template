@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -52,7 +53,7 @@ public class ProductController {
         @ApiImplicitParam(name = "pageNo", value = "查询第几页", required = true),
         @ApiImplicitParam(name = "pageSize", value = "分页长度", required = true)
     })
-    @RequestMapping(value = "/get-page/{page-no}/{page-size}", headers = "Content-Type=application/json")
+    @RequestMapping(value = "/get-page/{pageNo}/{pageSize}", headers = "Content-Type=application/json")
     @ResponseBody
     public Result<PageInfo> getPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize)throws CommonException {
         List<Product> products = productService.getListWithPage(pageNo,pageSize);
@@ -79,7 +80,7 @@ public class ProductController {
     @ApiOperation(value = "添加商品信息", httpMethod = "POST")
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public Result<String> addProduct(Product product)throws CommonException {
+    public Result<String> addProduct(@RequestBody Product product)throws CommonException {
         productService.add(product);
         return ResultUtil.ok();
     }
