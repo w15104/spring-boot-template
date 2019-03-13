@@ -30,7 +30,7 @@ public interface ProductMapper {
      * @param product 产品信息
      * @return sql受影响的条数
      */
-    int updateByID(Product product);
+    void updateByID(Product product);
 
     /**
      * 根据ID删除产品
