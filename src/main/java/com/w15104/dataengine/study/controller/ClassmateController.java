@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
-import java.nio.charset.CoderMalfunctionError;
 import java.util.List;
 
 /*
@@ -30,9 +29,9 @@ import java.util.List;
  * @modified date:
  * @modified no:
  */
-@Api(tags="班级管理")
+@Api(tags="class")
 @RestController
-@RequestMapping("classmate")
+@RequestMapping("/v1/classmate")
 public class ClassmateController {
 
     /**
@@ -53,8 +52,7 @@ public class ClassmateController {
     @ResponseBody
     public Result<List<Classmate>> findClassByID(@PathVariable String id)throws CommonException {
         //返回访问值
-    	List<Classmate> test= classmateService.findClassByID(id);
-        return ResultUtil.ok(test);
+        return ResultUtil.ok(classmateService.findClassByID(id));
     }
 
 }
