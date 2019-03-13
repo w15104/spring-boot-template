@@ -5,9 +5,7 @@ import com.w15104.dataengine.study.basic.exception.ErrorCode;
 import com.w15104.dataengine.study.mapper.ClassmateMapper;
 import com.w15104.dataengine.study.entity.Classmate;
 import com.w15104.dataengine.study.service.IClassmateService;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
@@ -24,11 +22,9 @@ import java.util.List;
  * @modified no:
  */
 @Service
+@Slf4j
 public class ClassmateService implements IClassmateService {
 	
-	private final static Logger logger = LoggerFactory.getLogger(ClassmateService.class);
-	
-
     @Resource
     private ClassmateMapper classmateMapper;
 
@@ -41,7 +37,7 @@ public class ClassmateService implements IClassmateService {
 
     public  List<Classmate> findClassByID(String id)throws CommonException{
         try {
-            logger.info("查询信息 ID = %s", id);
+            log.info("查询信息 ID = %s", id);
             return classmateMapper.findClassByID(id);
          }catch (Exception e){
              throw new CommonException(ErrorCode.E_00003, e);

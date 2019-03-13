@@ -2,11 +2,7 @@ package com.w15104.dataengine.study.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.io.Serializable;
 import java.util.List;
-
-import org.springframework.stereotype.Component;
 
 /*
  *
@@ -21,19 +17,17 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @EqualsAndHashCode(callSuper=false)
-//@Component
-public class Classmate implements Serializable{
+public class Classmate {
 
-	private static final Long serialVersionUid = 1L;
     /**
      * 班级ID
      */
-    public String classId;
+    private String classId;
 
     /**
      * 教师数量
      */
-    public String teacherNum;
+    private String teacherNum;
 
     /**
      * 学生数量

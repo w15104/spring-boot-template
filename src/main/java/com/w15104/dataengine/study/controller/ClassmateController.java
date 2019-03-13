@@ -30,7 +30,7 @@ import java.util.List;
  * @modified date:
  * @modified no:
  */
-@Api(tags="班级管理", description="班级信息")
+@Api(tags="班级管理")
 @RestController
 @RequestMapping("classmate")
 public class ClassmateController {

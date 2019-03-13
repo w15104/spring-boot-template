@@ -31,7 +31,7 @@ import java.util.List;
  * @modified date:
  * @modified no:
  */
-@Api(tags="商品管理", description="123")
+@Api(tags="商品管理")
 @RestController
 @RequestMapping("product")
 public class ProductController {
