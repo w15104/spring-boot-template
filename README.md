@@ -5,11 +5,11 @@ spring-boot模板工程。
 目的是为了提高开发效率，降低开发成本，较少沟通成本以及后期维护成本。使编程小伙伴更加专注业务逻辑的开发。  
 
 
-#开发环境
+# 开发环境
 springboot-version： 1.5.8-RELEASE
 jdk: 1.8
 
-#工程目录结构
+# 工程目录结构
 #### /src/main/java  源码包结构
 1. App.java 该类为项目的启动类，包含加载配置和启动的方法
 2. Swagger2.java swagger的配置
