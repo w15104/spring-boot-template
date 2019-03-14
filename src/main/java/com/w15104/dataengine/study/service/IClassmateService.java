@@ -18,6 +18,6 @@ import java.util.List;
  */
 public interface IClassmateService {
 
-    List<Classmate> findClassByID(String id) throws CommonException;
+    List<Classmate> findClassByID(String id);
 
 }

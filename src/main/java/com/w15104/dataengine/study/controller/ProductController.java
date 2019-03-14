@@ -58,7 +58,7 @@ public class ProductController {
     })
     @RequestMapping(value = "/get-page/{pageNo}/{pageSize}", headers = "Content-Type=application/json")
     @ResponseBody
-    public Result<PageInfo> getPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize)throws CommonException {
+    public Result<PageInfo> getPage(@PathVariable Integer pageNo, @PathVariable Integer pageSize) {
         List<Product> products = productService.getListWithPage(pageNo,pageSize);
         PageInfo<Product> pageInfo = new PageInfo<>(products);
         return ResultUtil.ok(pageInfo);
@@ -71,7 +71,7 @@ public class ProductController {
     @ApiOperation(value = "获得所有的商品信息", httpMethod = "GET")
     @RequestMapping(value = "/get-all")
     @ResponseBody
-    public Result<List<Product>> getAll() throws CommonException {
+    public Result<List<Product>> getAll() {
         return ResultUtil.ok(productService.getListWithPage(null,null));
     }
 
@@ -83,7 +83,7 @@ public class ProductController {
     @ApiOperation(value = "添加商品信息", httpMethod = "POST")
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public Result<String> addProduct(@RequestBody Product product)throws CommonException {
+    public Result<String> addProduct(@RequestBody Product product) {
         productService.add(product);
         return ResultUtil.ok();
     }
@@ -96,7 +96,7 @@ public class ProductController {
     @ApiOperation(value = "修改商品信息", httpMethod = "PUT")
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     @ResponseBody
-    public Result<String> updateProduct(@RequestBody  Product product)throws CommonException {
+    public Result<String> updateProduct(@RequestBody  Product product) {
 
         productService.updateByID(product);
         return ResultUtil.ok();
@@ -111,7 +111,7 @@ public class ProductController {
     @ApiImplicitParam(name = "id", value = "商品id", required = true)
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public Result<String> detete(@PathVariable  Integer id) throws CommonException {
+    public Result<String> detete(@PathVariable  Integer id) {
         productService.deleteById(id);
         return ResultUtil.ok();
     }
@@ -124,7 +124,7 @@ public class ProductController {
     @ApiOperation(value = "根据ID获得信息", httpMethod = "GET")
     @RequestMapping(value = "/get/{id}")
     @ResponseBody
-    public Result<Product> get(@PathVariable  Integer id) throws CommonException {
+    public Result<Product> get(@PathVariable  Integer id) {
         return ResultUtil.ok(productService.getById(id));
     }
 

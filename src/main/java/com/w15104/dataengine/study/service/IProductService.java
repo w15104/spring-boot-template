@@ -18,14 +18,14 @@ import java.util.List;
  */
 public interface IProductService {
 
-    void add(Product product) throws CommonException;
+    void add(Product product);
 
-    void updateByID(Product product) throws CommonException;
+    void updateByID(Product product);
 
-    void deleteById(Integer id)throws CommonException;
+    void deleteById(Integer id);
 
-    Product getById(Integer id)throws CommonException;
+    Product getById(Integer id);
 
-    List<Product> getListWithPage(Integer pageNo, Integer pageSize) throws CommonException;
+    List<Product> getListWithPage(Integer pageNo, Integer pageSize);
 
 }

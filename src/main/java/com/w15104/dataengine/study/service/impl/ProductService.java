@@ -53,7 +53,7 @@ public class ProductService implements IProductService {
      * g更新商品信息
      * @param product 商品实体
      */
-    public void updateByID(Product product) throws CommonException {
+    public void updateByID(Product product) {
 
         try {
               productMapper.updateByID(product);
@@ -67,7 +67,7 @@ public class ProductService implements IProductService {
      * 根据ID删除商品
      * @param id 商品ID
      */
-    public void deleteById(Integer id)throws CommonException {
+    public void deleteById(Integer id) {
 
         int result;
 
@@ -87,7 +87,7 @@ public class ProductService implements IProductService {
      * @param id 商品ID
      * @return Product
      */
-    public Product getById(Integer id)throws CommonException {
+    public Product getById(Integer id) {
         try {
             return productMapper.getById(id);
         }catch (Exception e){
@@ -101,7 +101,7 @@ public class ProductService implements IProductService {
      * @param pageNo 开始页数
      * @param pageSize 每页显示的数据条数
     */
-    public List<Product> getListWithPage(Integer pageNo,Integer pageSize) throws CommonException {
+    public List<Product> getListWithPage(Integer pageNo,Integer pageSize) {
 
         //将参数传给这个方法就可以实现物理分页了，非常简单。
         try {
