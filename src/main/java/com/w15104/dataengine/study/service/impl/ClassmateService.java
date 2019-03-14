@@ -37,7 +37,7 @@ public class ClassmateService implements IClassmateService {
      * @param id 班级ID
      * @return  List<Classmate>
      */
-    public  List<Classmate> findClassByID(String id)throws CommonException {
+    public  List<Classmate> findClassByID(String id) {
         try {
             return classmateMapper.findClassByID(id);
          }catch (Exception e){

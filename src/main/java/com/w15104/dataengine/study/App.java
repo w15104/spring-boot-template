@@ -21,7 +21,7 @@ import org.springframework.context.ApplicationContext;
  * @modified no:
  */
 @SpringBootApplication
-@ServletComponentScan
+//@ServletComponentScan
 @MapperScan({"com.w15104.dataengine.study.mapper"})
 public class App extends SpringBootServletInitializer {
 

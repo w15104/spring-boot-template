@@ -50,7 +50,7 @@ public class ClassmateController {
     @ApiResponse(code = 401, message = "未认证", response = Result.class)
     @RequestMapping(value = "/get/{id}")
     @ResponseBody
-    public Result<List<Classmate>> findClassByID(@PathVariable String id)throws CommonException {
+    public Result<List<Classmate>> findClassByID(@PathVariable String id) {
         //返回访问值
         return ResultUtil.ok(classmateService.findClassByID(id));
     }
