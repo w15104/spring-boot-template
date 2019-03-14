@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.w15104.dataengine.study.mapper.ClassmateMapper">
+
+    <resultMap id="findClassMap" type="com.w15104.dataengine.study.entity.Classmate" autoMapping="true">
+        <id column="class_id" property="classId" />
+        <result column="teacher_num" property="teacherNum" />
+        <result column="student_num" property="studentNum" />
+        <result column="poision" property="poision" />
+        <result column="description" property="description" />
+        <collection property="studentList" ofType="com.w15104.dataengine.study.entity.Student">
+            <result column="student_class" property="classId" jdbcType="VARCHAR" />
+            <result column="student_name" property="studentName" jdbcType="VARCHAR"/>
+            <result column="student_description" property="description" jdbcType="VARCHAR"/>
+            <result column="student_sex" property="sex" jdbcType="VARCHAR"/>
+            <result column="student_family" property="family" jdbcType="VARCHAR"/>
+        </collection>
+        <collection property="teacherList" ofType="com.w15104.dataengine.study.entity.Teacher">
+            <result column="teacher_class" property="classId" jdbcType="VARCHAR" />
+            <result column="teacher_name" property="teacherName" jdbcType="VARCHAR"/>
+            <result column="teacher_description" property="description" jdbcType="VARCHAR"/>
+            <result column="teacher_sex" property="sex" jdbcType="VARCHAR"/>
+            <result column="teacher_family" property="family" jdbcType="VARCHAR"/>
+        </collection>
+    </resultMap>
+
+    <select id="findClassByID" resultMap="findClassMap" parameterType="java.lang.String">
+        SELECT tb_class.class_id, tb_class.teacher_num, tb_class.student_num, tb_class.poision, tb_class.description,
+        tb_student.class_id as student_class, tb_student.student_name as student_name, tb_student.description as student_description, tb_student.sex as student_sex, tb_student.family as student_family,
+        tb_teacher.class_id as teacher_class, tb_teacher.teacher_name as teacher_name, tb_teacher.description as teacher_description, tb_teacher.sex as teacher_sex, tb_teacher.family as teacher_family
+        from tb_class
+        LEFT JOIN tb_student ON tb_class.class_id = tb_student.class_id
+        LEFT JOIN tb_teacher ON tb_class.class_id = tb_teacher.class_id
+        WHERE tb_class.class_id=#{id}
+    </select>
+</mapper>
