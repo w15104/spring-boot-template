@@ -35,7 +35,7 @@ public class CommonException extends  RuntimeException{
      * @param code 错误码
      */
     public CommonException(ErrorCode code){
-        super( code.getMessageCN());
+        super( code.getMessageUS());
         this.code = code;
     }
 
