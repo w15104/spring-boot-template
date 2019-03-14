@@ -29,7 +29,7 @@ import java.util.List;
  * @modified date:
  * @modified no:
  */
-@Api(tags="class")
+@Api(tags="class", description = "woshi")
 @RestController
 @RequestMapping("/v1/classmate")
 public class ClassmateController {

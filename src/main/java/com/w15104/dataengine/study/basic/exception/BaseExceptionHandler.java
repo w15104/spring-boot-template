@@ -38,12 +38,12 @@ public class BaseExceptionHandler {
         if(ex instanceof  CommonException){
             //自定义异常
             /**        日志输出    **/
-            rs.setResult(false);
+            rs.setStatus(false);
             rs.setCode( ((CommonException) ex).getCode());
         } else {
             //未知异常
             /**        日志输出    **/
-            rs.setResult(false);
+            rs.setStatus(false);
             rs.setCode(ErrorCode.E_00000);
         }
 

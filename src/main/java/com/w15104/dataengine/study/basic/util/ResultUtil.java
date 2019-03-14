@@ -2,11 +2,7 @@ package com.w15104.dataengine.study.basic.util;
 
 import com.w15104.dataengine.study.basic.config.Result;
 import com.w15104.dataengine.study.basic.exception.ErrorCode;
-import com.w15104.dataengine.study.service.IClassmateService;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
-
 
 /*
  *
@@ -28,7 +24,7 @@ public class ResultUtil {
      * @return T
      */
     public static <T> Result<T> ok(T data){
-        return new Result<T>().setResult(true).setData(data);
+        return new Result<T>().setStatus(true).setData(data);
     }
 
     /**
@@ -36,7 +32,7 @@ public class ResultUtil {
      * @return T
      */
     public static <T> Result<T> ok(){
-        return new Result<T>().setResult(true);
+        return new Result<T>().setStatus(true);
     }
 
     /**
@@ -46,7 +42,7 @@ public class ResultUtil {
      * @return T
      */
     public static <T> Result<T> error(ErrorCode code, Boolean isClinese) {
-        return new Result<T>().setResult(false).setCode(code);
+        return new Result<T>().setStatus(false).setCode(code);
     }
 
 }

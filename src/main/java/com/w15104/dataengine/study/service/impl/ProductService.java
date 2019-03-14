@@ -34,7 +34,7 @@ public class ProductService implements IProductService {
      * 添加商品信息
      * @param product 商品实体
      */
-    public void add(Product product) throws CommonException {
+    public void add(Product product)  {
 
         int result;
 
@@ -59,6 +59,7 @@ public class ProductService implements IProductService {
         try {
             result = productMapper.updateByID(product);
         }catch (Exception e){
+        	
             throw new CommonException(ErrorCode.E_00001, e);
         }
 

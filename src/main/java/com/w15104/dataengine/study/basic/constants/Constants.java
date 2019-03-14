@@ -14,6 +14,8 @@ package com.w15104.dataengine.study.basic.constants;
  */
 public class Constants {
 
+	private Constants() {}
+	
     /**
      * FORMAT2格式
      */

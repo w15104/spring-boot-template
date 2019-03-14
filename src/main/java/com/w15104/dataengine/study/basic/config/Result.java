@@ -20,9 +20,14 @@ import java.io.Serializable;
 public class Result<T> implements Serializable {
 
     /**
+	 * 序列化
+	 */
+	private static final long serialVersionUID = -3875991610101457115L;
+	
+	/**
      * 成功标志
      */
-    private boolean result;
+    private boolean status;
 
     /**
      * 错误码
@@ -72,12 +77,12 @@ public class Result<T> implements Serializable {
         return this;
     }
 
-    public boolean getResult(){
-        return result;
+    public boolean getStatus(){
+        return status;
     }
 
-    public Result<T> setResult(boolean result) {
-        this.result = result;
+    public Result<T> setStatus(boolean status) {
+        this.status = status;
         return this;
     }
 
@@ -96,7 +101,7 @@ public class Result<T> implements Serializable {
     @Override
     public String toString() {
         return "Result{" +
-                "result=" + result +
+                "status=" + status +
                 ", code=" + code +
                 ", data=" + data +
                 ", errMsgUS='" + errMsgUS + '\'' +

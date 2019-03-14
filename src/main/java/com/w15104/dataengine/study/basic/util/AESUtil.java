@@ -66,7 +66,7 @@ public class AESUtil {
      */
     static {
         try {
-            SecretKeySpec keySpec = new SecretKeySpec(KEY.getBytes("utf-8"), "AES");
+            SecretKeySpec keySpec = new SecretKeySpec(KEY.getBytes("utf-8"), ALGO);
             IvParameterSpec ivSpec = new IvParameterSpec(IV.getBytes("utf-8"));
             encode = Cipher.getInstance(ALGO_MODE);
             encode.init(Cipher.ENCRYPT_MODE, keySpec, ivSpec);

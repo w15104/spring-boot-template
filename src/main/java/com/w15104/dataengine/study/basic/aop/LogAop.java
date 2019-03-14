@@ -34,7 +34,7 @@ public class LogAop {
 	/**
      * 切入点，包含service层和controller层
      */
-	@Pointcut("execution(public * com.w15104.dataengine.study.controller..*.*(..)) or "
+	@Pointcut("execution(public * com.w15104.dataengine.study.controller..*.*(..)) || "
 			+ "execution(public * com.w15104.dataengine.study.service..*.*(..))")
 	public void serviceLog() throws Throwable{
 		logger.info("start operations");

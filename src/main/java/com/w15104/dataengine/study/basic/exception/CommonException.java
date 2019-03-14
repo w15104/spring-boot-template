@@ -11,7 +11,7 @@ package com.w15104.dataengine.study.basic.exception;
  * @modified date:
  * @modified no:
  */
-public class CommonException extends Exception{
+public class CommonException extends  RuntimeException{
 
     /**
      * 唯一识别号
