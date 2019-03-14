@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -86,11 +87,17 @@ public class ProductController {
         productService.add(product);
         return ResultUtil.ok();
     }
-    
-    @ApiOperation(value = "添加商品信息", httpMethod = "POST")
+
+    /**
+     * 添加商品
+     * @param product 修改产品信息
+     * @return String
+     */
+    @ApiOperation(value = "修改商品信息", httpMethod = "PUT")
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     @ResponseBody
-    public Result<String> updateProduct(@RequestBody Product product)throws CommonException {
+    public Result<String> updateProduct(@RequestBody  Product product)throws CommonException {
+
         productService.updateByID(product);
         return ResultUtil.ok();
     }
