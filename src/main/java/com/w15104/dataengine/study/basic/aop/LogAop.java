@@ -31,6 +31,8 @@ public class LogAop {
 
 	private final  Logger logger = LoggerFactory.getLogger(LogAop.class);
 
+	ThreadLocal<Long> duration = new ThreadLocal<Long>();
+	
 	/**
      * 切入点，包含service层和controller层
      */
@@ -47,15 +49,16 @@ public class LogAop {
 	 */
 	@Before("serviceLog()")
 	public void doBefore(JoinPoint joinPoint) throws Throwable {
+		duration.set(System.currentTimeMillis());
 		// 接收到请求，获得参数
 		ServletRequestAttributes attributes = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
 		HttpServletRequest servletRequest = attributes.getRequest();
 		
-		logger.info(servletRequest.getRequestURI().toString());
-		logger.info(servletRequest.getMethod());
-		logger.info(servletRequest.getRemoteAddr());
-		logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-		logger.info("ARGS" + Arrays.toString(joinPoint.getArgs()));
+		logger.info("REQUEST URL: {}", servletRequest.getRequestURI().toString());
+		logger.info("REQUEST METHOD{}", servletRequest.getMethod());
+		logger.info("ACCESS ADDR: {}", servletRequest.getRemoteAddr());
+		logger.info("CLASS_METHOD : {}.{}", joinPoint.getSignature().getDeclaringTypeName(), joinPoint.getSignature().getName());
+		logger.info("ARGS: {}", Arrays.toString(joinPoint.getArgs()));
 	}
 	
 	/**
@@ -65,6 +68,7 @@ public class LogAop {
 	 */
 	@AfterReturning(returning = "ret", pointcut = "serviceLog()")
 	public void doAfterReturning(Object ret) throws Throwable{
-		logger.info("RESPONSE: " + ret);
+		logger.info("RESPONSE: {}", ret);
+		logger.info("SPEND TIME: {}Millis", (System.currentTimeMillis() - duration.get()));
 	}
 }

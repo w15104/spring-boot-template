@@ -51,7 +51,7 @@ public class ProductController {
      * @param pageSize 每页数量
      * @return PageInfo 分页信息
      */
-    @ApiOperation(value = "根据页码和单页数量查询", httpMethod = "GET")
+	@ApiOperation(value = "根据页码和单页数量查询", httpMethod = "GET")
     @ApiImplicitParams({
         @ApiImplicitParam(name = "pageNo", value = "查询第几页", required = true),
         @ApiImplicitParam(name = "pageSize", value = "分页长度", required = true)

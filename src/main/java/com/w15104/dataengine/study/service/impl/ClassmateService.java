@@ -23,7 +23,6 @@ import java.util.List;
  * @modified no:
  */
 @Service
-@Slf4j
 public class ClassmateService implements IClassmateService {
 
     /**
