@@ -247,7 +247,7 @@
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.2</version>
+                <version>${mybatis-generator-maven-plugin-version}</version>
                 <configuration>
                     <!--若generatorConfig.xml文件在resources根目录下，无需配置configurationFile-->
                     <configurationFile>src/main/resources/mybatis/generatorConfig.xml</configurationFile>
@@ -258,7 +258,7 @@
                     <dependency>
                         <groupId>org.mybatis.generator</groupId>
                         <artifactId>mybatis-generator-core</artifactId>
-                        <version>1.3.2</version>
+                        <version>${mybatis-generator-core-version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
