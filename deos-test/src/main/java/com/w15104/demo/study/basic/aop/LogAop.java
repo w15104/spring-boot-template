@@ -14,6 +14,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+
+import com.w15104.demo.study.basic.util.IPUtils;
 /*
 *
 * @Description 日志切面
@@ -56,7 +58,7 @@ public class LogAop {
 		
 		logger.info("REQUEST URL: {}", servletRequest.getRequestURI().toString());
 		logger.info("REQUEST METHOD{}", servletRequest.getMethod());
-		logger.info("ACCESS ADDR: {}", servletRequest.getRemoteAddr());
+		logger.info("ACCESS ADDR: {}", IPUtils.getIpAddr(servletRequest));
 		logger.info("CLASS_METHOD : {}.{}", joinPoint.getSignature().getDeclaringTypeName(), joinPoint.getSignature().getName());
 		logger.info("ARGS: {}", Arrays.toString(joinPoint.getArgs()));
 	}
