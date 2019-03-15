@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
  * @Description java程序执行shell工具类
  *
  * @author b15873
- * @data: 2019-3-15
+ * @data: 2019-03-15
  *
  * @modified by:
  * @modified date:
