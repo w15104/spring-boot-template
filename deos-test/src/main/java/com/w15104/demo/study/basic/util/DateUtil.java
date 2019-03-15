@@ -6,6 +6,17 @@ import java.util.Date;
 
 import com.w15104.demo.study.basic.constants.Constants;
 
+/*
+*
+* @Description 时间工具类
+*
+* @author y15649
+* @data: 2019-3-5
+*
+* @modified by:
+* @modified date:
+* @modified no:
+*/
 public class DateUtil {
 
 	private static final DateUtil util = new DateUtil();
