@@ -31,12 +31,6 @@
 			<version>${spring-boot-version}</version>
 		</dependency>
 
-		<!-- springboot集成的log4j日志组件 -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-log4j</artifactId>
-			<version>${log4j-version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
