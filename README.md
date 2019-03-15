@@ -43,7 +43,7 @@ jdk: 1.8
 1.	下载lombok
 2.	安装插件
 * eclipse: java  –jar lombok-1.18.2.jar 
-* idea: File-->Setting-plugins ---> Install plugin from disk
+* idea: File-->Setting-plugins ---> Install plugin from disk [插件下载地址](http://plugins.jetbrains.com/plugin/6317-lombok-plugin)
 3.	重启ide开发工具
 4.	常用注解： <br/>
 * @Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法 
