@@ -13,6 +13,7 @@
 	<packaging>war</packaging>
 
 	<properties>
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -34,7 +35,7 @@
 
 		<!-- common langs -->
 		<commonLangVersion>3.4</commonLangVersion>
-
+		
 	</properties>
 
 	<dependencies>
@@ -44,10 +45,8 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 			<version>${spring-boot-version}</version>
-			<!-- <exclusions> 先把springboot默认的日志starter给排除掉，再使用自定义的日志组件 <exclusion> 
-				<groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-logging</artifactId> 
-				</exclusion> </exclusions> -->
 		</dependency>
+
 		<!-- springboot集成的log4j日志组件 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -76,23 +75,25 @@
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>${mybatis-spring-boot-starter-version}</version>
 		</dependency>
+
 		<!-- 测试 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<version>1.5.8.RELEASE</version>
+			<version>${spring-boot-starter-test-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>${junit-version}</version>
 			<!-- <scope>test</scope> -->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>4.3.6.RELEASE</version>
+			<version>${spring-test-version}</version>
 		</dependency>
+
 		<!-- 分页插件 -->
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
@@ -106,6 +107,7 @@
 			<artifactId>lombok</artifactId>
 			<version>${lombok.version}</version>
 		</dependency>
+
 		<!-- 热部署 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -114,6 +116,7 @@
 			<optional>true</optional>
 			<!-- <scope>test</scope> -->
 		</dependency>
+
 		<!-- AOP切面 -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -128,12 +131,12 @@
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
-			<version>2.1</version>
+			<version>${cglib-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
-			<version>4.3.9.RELEASE</version>
+			<version>${spring-aop-version}</version>
 		</dependency>
 
 		<!-- swagger 配置 -->
@@ -150,7 +153,7 @@
 		<dependency>
 			<groupId>org.springframework.restdocs</groupId>
 			<artifactId>spring-restdocs-mockmvc</artifactId>
-			<version>1.1.2.RELEASE</version>
+			<version>${spring-restdocs-mockmvc-version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -164,22 +167,22 @@
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
-			<version>1.11</version>
+			<version>${commons-codec-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
-			<version>1.9.3</version>
+			<version>${commons-beanutils-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.5</version>
+			<version>${commons-lang3-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>2.5</version>
+			<version>${commons-io-version}</version>
 		</dependency>
 
 		<!-- 阿里json类 -->
@@ -205,37 +208,28 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
-			<!-- <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-var-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<testFailureIgnore>false</testFailureIgnore>
-				</configuration>
-			</plugin> -->
-			<!-- Run the generated asciidoc through Asciidoctor to generate other 
+			<!-- Run the generated asciidoc through Asciidoctor to generate other
 				documentation types, such as PDFs or HTML5 -->
 			<!--通过Asciidoctor使得asciidoc生成其他的文档格式，例如：PDF 或者HTML5 -->
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>
-				<version>1.5.3</version>
+				<version>${asciidoctor-maven-plugin-version}</version>
 				<!-- Include Asciidoctor PDF for pdf generation -->
 				<!--生成PDF -->
 				<dependencies>
 					<dependency>
 						<groupId>org.asciidoctor</groupId>
 						<artifactId>asciidoctorj-pdf</artifactId>
-						<version>1.5.0-alpha.14</version>
+						<version>${asciidoctorj-pdf-version}</version>
 					</dependency>
 
-					<!-- Comment this section to use the default jruby artifact provided 
+					<!-- Comment this section to use the default jruby artifact provided
 						by the plugin -->
 					<dependency>
 						<groupId>org.jruby</groupId>
 						<artifactId>jruby-complete</artifactId>
-						<version>1.7.21</version>
+						<version>${jruby-complete-version}</version>
 					</dependency>
 				</dependencies>
 
@@ -255,7 +249,7 @@
 						<generated>${generated.asciidoc.directory}</generated>
 					</attributes>
 				</configuration>
-				<!-- Since each execution can only handle one backend, run separate executions 
+				<!-- Since each execution can only handle one backend, run separate executions
 					for each desired output type -->
 				<!--因为每次执行只能处理一个后端，所以对于每个想要的输出类型，都是独立分开执行 -->
 				<executions>
@@ -285,6 +279,25 @@
 					</execution>
 				</executions>
 			</plugin>
+            <!--生成映射代码-->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>${mybatis-generator-maven-plugin-version}</version>
+                <configuration>
+                    <!--若generatorConfig.xml文件在resources根目录下，无需配置configurationFile-->
+                    <configurationFile>src/main/resources/mybatis/generatorConfig.xml</configurationFile>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.mybatis.generator</groupId>
+                        <artifactId>mybatis-generator-core</artifactId>
+                        <version>${mybatis-generator-core-version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
 		</plugins>
 	</build>
 </project>
