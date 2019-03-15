@@ -37,7 +37,10 @@ public enum ErrorCode {
 
 	E_00011("文件下载异常", "Download file error"),
 
-	E_00012("写入文件失败", "Write wo file error"),;
+	E_00012("写入文件失败", "Write wo file error"),
+
+	E_00013("通过RestTemplate发送Request请求失败", "Send request by RestTemplate error"),
+	;
 
 	/**
 	 * 中文描述
