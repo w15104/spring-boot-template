@@ -43,10 +43,6 @@ public class TestSwaggerStaticDoc {
 	@Autowired
 	private MockMvc mockMvc;
 	
-	/*static {
-		StreamTool.checkFile(OUTPUT_DIR);
-	}
-	*/
 	@Test
 	public void createMsgFile() throws Exception {
 		log.info("create json file");
@@ -63,20 +59,5 @@ public class TestSwaggerStaticDoc {
 			.intoFolder(outputDir);*/
 		log.info("OK!");
 	}
-	
-	/**
-	 * 获得json文件
-	 * @throws Exception
-	 */
-	/*public void outputJson() throws Exception {
-		String url = SERVICE_URL + URL;
-		// 创建http请求
-		HttpClient httpClient = new HttpClient(url);
-	    // 发起请求，得到返回值
-		InputStream putStream = httpClient.execute();
-		// 将输入流转换成字节数
-		byte[] data = StreamTool.read(putStream);
-		// 生成文件json文件
-		StreamTool.saveDataToFile(data, FILE_PATH);
-	}*/
+
 }
