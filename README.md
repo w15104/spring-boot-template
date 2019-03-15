@@ -39,16 +39,18 @@ jdk: 1.8
 #### /src/test/java 测试目录
 #### docs 文档目录
 
-##lombok的使用
+## lombok的使用
 1.	下载lombok
-2.	java  –jar lombok-1.18.2.jar
+2.	安装插件
+* eclipse: java  –jar lombok-1.18.2.jar 
+* idea: File-->Setting-plugins ---> Install plugin from disk
 3.	重启ide开发工具
-4.	常用注解： 
-@Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法 
-@Setter：注解在属性上；为属性提供 setting 方法 
-@Getter：注解在属性上；为属性提供 getting 方法 
-@Log4j ：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象 
-@NoArgsConstructor：注解在类上；为类提供一个无参的构造方法 
-@AllArgsConstructor：注解在类上；为类提供一个全参的构造方法
+4.	常用注解： <br/>
+* @Data：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了equals、canEqual、hashCode、toString 方法 
+* @Setter：注解在属性上；为属性提供 setting 方法 
+* @Getter：注解在属性上；为属性提供 getting 方法 
+* @Log4j ：注解在类上；为类提供一个 属性名为log 的 log4j 日志对象 
+* @NoArgsConstructor：注解在类上；为类提供一个无参的构造方法 
+* @AllArgsConstructor：注解在类上；为类提供一个全参的构造方法
 
 
