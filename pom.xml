@@ -68,7 +68,7 @@
 		<asciidoctor-maven-plugin-version>1.5.3</asciidoctor-maven-plugin-version>
 		<asciidoctorj-pdf-version>1.5.0-alpha.14</asciidoctorj-pdf-version>
 		<jruby-complete-version>1.7.21</jruby-complete-version>
-		<mybatis-generator-maven-plugin-version>1.3.2</mybatis-generator-maven-plugin-version>
+        <mybatis-generator-maven-plugin-version>1.3.2</mybatis-generator-maven-plugin-version>
 
 	</properties>
 
