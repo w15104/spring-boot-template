@@ -29,6 +29,12 @@
 		<!-- aop切面 -->
 		<springboot-aop-version>1.6.11</springboot-aop-version>
 
+		<!-- 阿里json类版本 -->
+		<fastjsonVersion>1.2.47</fastjsonVersion>
+
+		<!-- common langs -->
+		<commonLangVersion>3.4</commonLangVersion>
+
 	</properties>
 
 	<dependencies>
@@ -176,6 +182,19 @@
 			<version>2.5</version>
 		</dependency>
 
+		<!-- 阿里json类 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjsonVersion}</version>
+		</dependency>
+
+		<!-- common lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commonLangVersion}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
