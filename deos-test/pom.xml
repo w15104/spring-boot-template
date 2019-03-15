@@ -172,7 +172,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
-			<!-- Run the generated asciidoc through Asciidoctor to generate other 
+			<!-- Run the generated asciidoc through Asciidoctor to generate other
 				documentation types, such as PDFs or HTML5 -->
 			<!--通过Asciidoctor使得asciidoc生成其他的文档格式，例如：PDF 或者HTML5 -->
 			<plugin>
@@ -188,7 +188,7 @@
 						<version>${asciidoctorj-pdf-version}</version>
 					</dependency>
 
-					<!-- Comment this section to use the default jruby artifact provided 
+					<!-- Comment this section to use the default jruby artifact provided
 						by the plugin -->
 					<dependency>
 						<groupId>org.jruby</groupId>
@@ -213,7 +213,7 @@
 						<generated>${generated.asciidoc.directory}</generated>
 					</attributes>
 				</configuration>
-				<!-- Since each execution can only handle one backend, run separate executions 
+				<!-- Since each execution can only handle one backend, run separate executions
 					for each desired output type -->
 				<!--因为每次执行只能处理一个后端，所以对于每个想要的输出类型，都是独立分开执行 -->
 				<executions>
@@ -243,6 +243,25 @@
 					</execution>
 				</executions>
 			</plugin>
+            <!--生成映射代码-->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2</version>
+                <configuration>
+                    <!--若generatorConfig.xml文件在resources根目录下，无需配置configurationFile-->
+                    <configurationFile>src/main/resources/mybatis/generatorConfig.xml</configurationFile>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.mybatis.generator</groupId>
+                        <artifactId>mybatis-generator-core</artifactId>
+                        <version>1.3.2</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
 		</plugins>
 	</build>
 </project>
