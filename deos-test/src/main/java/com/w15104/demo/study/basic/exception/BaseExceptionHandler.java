@@ -1,5 +1,6 @@
 package com.w15104.demo.study.basic.exception;
 
+import com.w15104.demo.study.basic.util.IPUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -54,7 +55,7 @@ public class BaseExceptionHandler {
         //自定义异常日志输出
         logger.error("REQUEST_URI: {}", request.getRequestURI());
         logger.error("REQUEST_METHOD: {}", request.getMethod());
-        logger.error("REQUEST_ADDR: {}", request.getRemoteAddr());
+        logger.error("REQUEST_ADDR: {}", IPUtils.getIpAddr(request));
         logger.error("ERROR_MESSAGESG: {}", ex.getMessage());
         logger.error("CLASS_METHOD: {}{}{} ",ex.getStackTrace()[0].getClassName(), "." , ex.getStackTrace()[0].getMethodName());
 
