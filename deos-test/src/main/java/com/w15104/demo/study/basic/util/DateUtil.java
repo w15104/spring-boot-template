@@ -4,8 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.w15104.demo.study.basic.constants.Constants;
-
 /*
 *
 * @Description 时间工具类
@@ -18,6 +16,23 @@ import com.w15104.demo.study.basic.constants.Constants;
 * @modified no:
 */
 public class DateUtil {
+	
+	/**
+	 * 时间格式14位
+	 */
+    public static final SimpleDateFormat FORMAT14 = new SimpleDateFormat("yyyyMMddHHmmss");
+	/**
+	 * 时间格式17位
+	 */
+    public static final SimpleDateFormat FORMAT17 = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+	/**
+	 * 时间格式19位
+	 */
+    public static final SimpleDateFormat FORMAT19 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	/**
+	 * 时间格式10位
+	 */
+    public static final SimpleDateFormat FORMAT10 = new SimpleDateFormat("yyyy-MM-dd");
 
 	private static final DateUtil util = new DateUtil();
 	
@@ -55,7 +70,7 @@ public class DateUtil {
 	 * @throws ParseException
 	 */
 	public static long getTime(String date) throws ParseException {
-		return DateUtil.getInstance().parse(Constants.FORMAT19, date).getTime();
+		return DateUtil.getInstance().parse(util.FORMAT19, date).getTime();
 	}
 	
 	/**

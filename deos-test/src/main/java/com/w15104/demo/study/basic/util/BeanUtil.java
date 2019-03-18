@@ -27,7 +27,7 @@ public class BeanUtil {
    * @return 目标对象
    * @throws CommonException 异常
    */
-  public static <T> T copyBean(Object origin, Class<T> clasz) throws CommonException {
+  public static <T> T copyBean(Object origin, Class<T> clasz) {
     try {
       T t = clasz.newInstance();
       BeanUtils.copyProperties(t, origin);
