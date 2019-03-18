@@ -25,17 +25,17 @@ public class DateUtil {
 	/**
 	 * 时间格式17位
 	 */
-	public static String FORMAT17 = "yyyyMMddHHmmssSSS";
+	public static final String FORMAT17 = "yyyyMMddHHmmssSSS";
 
 	/**
 	 * 时间格式19位
 	 */
-	public static String FORMAT19 = "yyyy-MM-dd HH:mm:ss";
+	public static final String FORMAT19 = "yyyy-MM-dd HH:mm:ss";
 
 	/**
 	 * 时间格式10位
 	 */
-	public static String FORMAT10 = "yyyy-MM-dd";
+	public static final String FORMAT10 = "yyyy-MM-dd";
 
 	private static final DateUtil util = new DateUtil();
 
