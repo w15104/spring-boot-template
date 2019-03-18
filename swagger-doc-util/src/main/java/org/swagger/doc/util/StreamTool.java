@@ -7,7 +7,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class StreamTool {
+	
+	private static final Logger logger = LoggerFactory.getLogger(StreamTool.class);
 
 	/**
 	 * 将输入流转换成字节数组
@@ -45,14 +50,14 @@ public class StreamTool {
 			os.write(data, 0, data.length);
 			os.flush();
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error("文件读取异常", e);
 		} finally {
 			//判断输出流是否为空
 			if (os != null) {
 				try {
 					os.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					logger.error("文件关闭错误", e);
 				}
 			}
 		}

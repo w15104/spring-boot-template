@@ -20,19 +20,19 @@ public class DateUtil {
 	/**
 	 * 时间格式14位
 	 */
-    public static final SimpleDateFormat FORMAT14 = new SimpleDateFormat("yyyyMMddHHmmss");
+    public SimpleDateFormat FORMAT14 = new SimpleDateFormat("yyyyMMddHHmmss");
 	/**
 	 * 时间格式17位
 	 */
-    public static final SimpleDateFormat FORMAT17 = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+    public SimpleDateFormat FORMAT17 = new SimpleDateFormat("yyyyMMddHHmmssSSS");
 	/**
 	 * 时间格式19位
 	 */
-    public static final SimpleDateFormat FORMAT19 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public SimpleDateFormat FORMAT19 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	/**
 	 * 时间格式10位
 	 */
-    public static final SimpleDateFormat FORMAT10 = new SimpleDateFormat("yyyy-MM-dd");
+    public SimpleDateFormat FORMAT10 = new SimpleDateFormat("yyyy-MM-dd");
 
 	private static final DateUtil util = new DateUtil();
 	
