@@ -19,6 +19,8 @@ import org.apache.commons.beanutils.BeanUtils;
  */
 public class BeanUtil {
 
+	private BeanUtil() {
+	}
 
   /**
    * 对象属性拷贝方法

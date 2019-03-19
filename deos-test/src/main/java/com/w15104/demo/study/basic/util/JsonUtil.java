@@ -21,6 +21,9 @@ import java.util.Map;
  */
 public class JsonUtil {
 
+	private JsonUtil() {
+	}
+	
     /**
      *  bean对象转json
      * @param object bean对象

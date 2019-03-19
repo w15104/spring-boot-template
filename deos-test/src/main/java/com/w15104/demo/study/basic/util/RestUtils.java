@@ -22,39 +22,50 @@ import org.springframework.web.client.RestTemplate;
  */
 public class RestUtils {
 
-    /**
-     * 日志
-     */
-    private static final Logger logger = LoggerFactory.getLogger(RestUtils.class);
+	private RestUtils() {
+	}
 
-    /**
-     * RestTemplate template
-     */
-    private static final RestTemplate template = new RestTemplate();
+	/**
+	 * 日志
+	 */
+	private static final Logger logger = LoggerFactory.getLogger(RestUtils.class);
 
-    /**
-     * 发送Request请求
-     * @param url URL
-     * @param httpMethod 请求方法
-     * @param requestEntity 携带的数据
-     * @param responseType 返回类型
-     * @param uriVariables 参数
-     * @param <T> T
-     * @return T
-     */
-    public static <T> T sendRequest(String url, HttpMethod httpMethod, HttpEntity<?> requestEntity, Class<T> responseType, Object... uriVariables) {
-        try {
-            logger.info("begin send request by RestTemplate");
-            SslUtil.ignoreSsl();
-            SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
-            //连接超时时长
-            requestFactory.setConnectTimeout(1500);
-            requestFactory.setReadTimeout(1000);
-            template.setRequestFactory(requestFactory);
-            return template.exchange(url, httpMethod, requestEntity, responseType, uriVariables).getBody();
-        }catch (Exception e){
-            throw new CommonException(ErrorCode.E_00013, e);
-        }
-    }
+	/**
+	 * RestTemplate template
+	 */
+	private static final RestTemplate template = new RestTemplate();
+
+	/**
+	 * 发送Request请求
+	 * 
+	 * @param url
+	 *            URL
+	 * @param httpMethod
+	 *            请求方法
+	 * @param requestEntity
+	 *            携带的数据
+	 * @param responseType
+	 *            返回类型
+	 * @param uriVariables
+	 *            参数
+	 * @param <T>
+	 *            T
+	 * @return T
+	 */
+	public static <T> T sendRequest(String url, HttpMethod httpMethod, HttpEntity<?> requestEntity,
+			Class<T> responseType, Object... uriVariables) {
+		try {
+			logger.info("begin send request by RestTemplate");
+			SslUtil.ignoreSsl();
+			SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+			// 连接超时时长
+			requestFactory.setConnectTimeout(1500);
+			requestFactory.setReadTimeout(1000);
+			template.setRequestFactory(requestFactory);
+			return template.exchange(url, httpMethod, requestEntity, responseType, uriVariables).getBody();
+		} catch (Exception e) {
+			throw new CommonException(ErrorCode.E_00013, e);
+		}
+	}
 
 }

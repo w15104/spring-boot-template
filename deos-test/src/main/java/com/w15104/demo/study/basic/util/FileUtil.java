@@ -36,6 +36,9 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
  */
 public class FileUtil extends FileUtils {
 
+	private FileUtil() {
+	}
+	
 	/**
 	 * 日志
 	 */
