@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +73,7 @@ public class JsonUtil {
      */
     public static <T> List<T> jsonToBeanList(String json, Class<T> clazz){
         if(StringUtils.isEmpty(json) || null == clazz){
-            return null;
+            return Collections.emptyList();
         }
         return JSON.parseArray(json, clazz);
     }
@@ -97,7 +98,7 @@ public class JsonUtil {
      */
     public static <T> List<Map<String, T>> jsonToMapList(String json){
         if(StringUtils.isEmpty(json)){
-            return null;
+            return Collections.emptyList();
         }
         return JSON.parseObject(json, new TypeReference<List<Map<String, T>>>(){
         });

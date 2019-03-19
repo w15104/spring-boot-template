@@ -338,11 +338,7 @@ public class FileUtil extends FileUtils {
 		String[] files;
 		if (src.isDirectory()) {
 			if (!(dest.exists() && dest.mkdir())) {
-				// if(!dest.exists()) {
-				// boolean result = dest.mkdir();
-				// if (!result){
 				logger.error("create dest dir error");
-				// }
 				return;
 			}
 			files = src.list();

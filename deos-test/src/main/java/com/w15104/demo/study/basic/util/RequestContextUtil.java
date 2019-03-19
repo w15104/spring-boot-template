@@ -19,7 +19,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
  */
 public class RequestContextUtil {
 
-	public RequestContextUtil() {
+	private RequestContextUtil() {
 	}
 
 	/**
