@@ -32,7 +32,6 @@ public class SslUtil {
 
         HostnameVerifier hv = new HostnameVerifier() {
             public boolean verify(String urlHostName, SSLSession session) {
-               log.info("Warning: URL Host: {} vs. {}", urlHostName, session.getPeerHost());
                return true;
             }
         };
