@@ -1,4 +1,4 @@
-package com.w15104.demo.study.basic.config;
+package com.w15104.demo.study.basic.result;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.w15104.demo.study.basic.exception.ErrorCode;

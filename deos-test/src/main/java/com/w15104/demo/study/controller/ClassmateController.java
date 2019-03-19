@@ -1,7 +1,7 @@
 package com.w15104.demo.study.controller;
 
 
-import com.w15104.demo.study.basic.config.Result;
+import com.w15104.demo.study.basic.result.Result;
 import com.w15104.demo.study.basic.util.ResultUtil;
 import com.w15104.demo.study.entity.Classmate;
 import com.w15104.demo.study.service.IClassmateService;

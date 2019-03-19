@@ -1,6 +1,6 @@
 package com.w15104.demo.study.basic.util;
 
-import com.w15104.demo.study.basic.config.Result;
+import com.w15104.demo.study.basic.result.Result;
 import com.w15104.demo.study.basic.exception.ErrorCode;
 import org.springframework.stereotype.Component;
 
