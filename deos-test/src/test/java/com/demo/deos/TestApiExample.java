@@ -2,6 +2,9 @@ package com.demo.deos;
 
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.text.ParseException;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 import org.junit.Test;
@@ -13,6 +16,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import com.w15104.demo.study.App;
+import com.w15104.demo.study.basic.util.DateUtil;
+
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -38,6 +43,11 @@ public class TestApiExample {
 		.andExpect(status().isOk())
 		.andDo(print())
 		.andReturn();
+	}
+	
+	@Test
+	public void testDate() throws ParseException {
+		System.out.println(DateUtil.getTime("2019-03-18 11:35:00"));
 	}
 	
 }

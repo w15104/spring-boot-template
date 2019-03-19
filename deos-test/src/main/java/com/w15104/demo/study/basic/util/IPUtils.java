@@ -60,7 +60,7 @@ public class IPUtils {
 			}
 
 			//对于多个代理的情况，第一个IP为客户端真实IP，多个IP按照','分割
-			if ((ipAddress != null) && (ipAddress.length() > 15) && (ipAddress.indexOf(SEPERATOR) > 0)) {
+			if ((ipAddress != null) && (ipAddress.length() > 15) && (ipAddress.indexOf(SEPERATOR) > -1)) {
 				ipAddress = ipAddress.substring(0, ipAddress.indexOf(SEPERATOR));
 			}
 		}

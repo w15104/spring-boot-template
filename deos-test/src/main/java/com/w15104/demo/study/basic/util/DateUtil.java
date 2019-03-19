@@ -4,8 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.w15104.demo.study.basic.constants.Constants;
-
 /*
 *
 * @Description 时间工具类
@@ -19,18 +17,42 @@ import com.w15104.demo.study.basic.constants.Constants;
 */
 public class DateUtil {
 
+	/**
+	 * 时间格式14位
+	 */
+	public static final String FORMAT14 = "yyyyMMddHHmmss";
+
+	/**
+	 * 时间格式17位
+	 */
+	public static final String FORMAT17 = "yyyyMMddHHmmssSSS";
+
+	/**
+	 * 时间格式19位
+	 */
+	public static final String FORMAT19 = "yyyy-MM-dd HH:mm:ss";
+
+	/**
+	 * 时间格式10位
+	 */
+	public static final String FORMAT10 = "yyyy-MM-dd";
+
 	private static final DateUtil util = new DateUtil();
-	
-	private DateUtil() {}
-	
+
+	private DateUtil() {
+	}
+
 	public static DateUtil getInstance() {
 		return util;
 	}
-	
+
 	/**
 	 * 将日期字符串转换成时间对想
-	 * @param date 日期
-	 * @param format 格式
+	 * 
+	 * @param date
+	 *            日期
+	 * @param format
+	 *            格式
 	 * @return 日期对想
 	 * @throws ParseException
 	 */
@@ -38,41 +60,62 @@ public class DateUtil {
 		SimpleDateFormat parse = new SimpleDateFormat(format);
 		return DateUtil.getInstance().parse(parse, date);
 	}
-	
+
 	/**
 	 * 获得当前时间字符串
-	 * @param format 格式化字符串
+	 * 
+	 * @param format
+	 *            格式化字符串
 	 * @return
 	 */
 	public static String getCurDateStr(String format) {
 		return getDate(new Date(), format);
 	}
-	
+
 	/**
 	 * 根据时间字符串获得时间戳
-	 * @param date 时间字符串（yyyy-MM-dd HH:mm:ss）
+	 * 
+	 * @param date
+	 *            时间字符串（yyyy-MM-dd HH:mm:ss）
 	 * @return 毫秒
 	 * @throws ParseException
 	 */
 	public static long getTime(String date) throws ParseException {
-		return DateUtil.getInstance().parse(Constants.FORMAT19, date).getTime();
+		return DateUtil.getInstance().parse(dateFormat(FORMAT19), date).getTime();
 	}
-	
+
 	/**
 	 * 获得时间字符串
-	 * @param date 日期
-	 * @param format 格式
+	 * 
+	 * @param date
+	 *            日期
+	 * @param format
+	 *            格式
 	 * @return
 	 */
 	public static String getDate(Date date, String format) {
-		SimpleDateFormat parse = new SimpleDateFormat(format);
+		SimpleDateFormat parse = dateFormat(format);
 		return parse.format(date);
 	}
-	
+
+	/**
+	 * 输出格式化数据
+	 * 
+	 * @param format
+	 *            数据格式例如："yyyy-MM-dd HH:mm:ss"
+	 * @return 返回 SimpleDateFormat对象
+	 */
+	public static SimpleDateFormat dateFormat(String format) {
+		return new SimpleDateFormat(format);
+	}
+
 	/**
 	 * 日期格式化
-	 * @param simple 日期格式化工具
-	 * @param date 日期字符串
+	 * 
+	 * @param simple
+	 *            日期格式化工具
+	 * @param date
+	 *            日期字符串
 	 * @return 日期类型
 	 * @throws ParseException
 	 */

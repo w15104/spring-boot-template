@@ -1,14 +1,13 @@
 package com.w15104.demo.study.basic.util;
-
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import lombok.extern.slf4j.Slf4j;
 
 
 /*
@@ -22,6 +21,7 @@ import javax.net.ssl.X509TrustManager;
  * @modified date:
  * @modified no:
  */
+@Slf4j
 public class SslUtil {
 
     /**
@@ -32,8 +32,8 @@ public class SslUtil {
 
         HostnameVerifier hv = new HostnameVerifier() {
             public boolean verify(String urlHostName, SSLSession session) {
-                System.out.println("Warning: URL Host: " + urlHostName + " vs. " + session.getPeerHost());
-                return true;
+               log.info("Warning: URL Host: {} vs. {}", urlHostName, session.getPeerHost());
+               return true;
             }
         };
         trustAllHttpsCertificates();
@@ -46,7 +46,7 @@ public class SslUtil {
      */
     private static void trustAllHttpsCertificates() throws Exception {
         TrustManager[] trustAllCerts = new javax.net.ssl.TrustManager[1];
-        TrustManager tm = new miTM();
+        TrustManager tm = new MiTM();
         trustAllCerts[0] = tm;
         SSLContext sc = javax.net.ssl.SSLContext.getInstance("SSL");
         sc.init(null, trustAllCerts, null);
@@ -56,7 +56,7 @@ public class SslUtil {
     /**
      * miTM类
      */
-    static class miTM implements TrustManager, X509TrustManager {
+    static class MiTM implements TrustManager, X509TrustManager {
 
         public X509Certificate[] getAcceptedIssuers() {
             return null;

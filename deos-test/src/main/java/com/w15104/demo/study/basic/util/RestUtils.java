@@ -30,7 +30,7 @@ public class RestUtils {
     /**
      * RestTemplate template
      */
-    public static RestTemplate template = new RestTemplate();
+    private static final RestTemplate template = new RestTemplate();
 
     /**
      * 发送Request请求

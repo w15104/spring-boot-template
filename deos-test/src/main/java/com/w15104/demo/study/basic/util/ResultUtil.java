@@ -41,7 +41,7 @@ public class ResultUtil {
      * @param isClinese 抛出错误的信息是否设置为中文
      * @return T
      */
-    public static <T> Result<T> error(ErrorCode code, Boolean isClinese) {
+    public static <T> Result<T> error(ErrorCode code) {
         return new Result<T>().setStatus(false).setCode(code);
     }
 

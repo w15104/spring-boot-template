@@ -31,7 +31,6 @@ public abstract class ShellUtils {
             process.waitFor();
             Runtime.getRuntime().exec(String.format("/bin/bash %s %s ", shellPath, params)).waitFor();
         } catch (Exception e) {
-            e.printStackTrace();
             log.error(e.getMessage());
         }
         log.info("run shell successfully");

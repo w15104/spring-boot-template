@@ -8,12 +8,10 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-
 import com.w15104.demo.study.basic.exception.CommonException;
 import com.w15104.demo.study.basic.exception.ErrorCode;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /*
  *
@@ -26,13 +24,11 @@ import org.slf4j.LoggerFactory;
  * @modified date:
  * @modified no:
  */
+@Slf4j
 public class AESUtil {
 
-    /**
-     * 日志
-     */
-    private final static Logger logger = LoggerFactory.getLogger(AESUtil.class);
-
+	private AESUtil() {}
+	
     /**
      * 算法名
      */
@@ -66,20 +62,20 @@ public class AESUtil {
      */
     static {
         try {
-            SecretKeySpec keySpec = new SecretKeySpec(KEY.getBytes("utf-8"), ALGO);
-            IvParameterSpec ivSpec = new IvParameterSpec(IV.getBytes("utf-8"));
+            SecretKeySpec keySpec = new SecretKeySpec(KEY.getBytes(ENCODING), ALGO);
+            IvParameterSpec ivSpec = new IvParameterSpec(IV.getBytes(ENCODING));
             encode = Cipher.getInstance(ALGO_MODE);
             encode.init(Cipher.ENCRYPT_MODE, keySpec, ivSpec);
             decode = Cipher.getInstance(ALGO_MODE);
             decode.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
         } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
-            logger.error("算法不存在异常");
+            log.error("算法不存在异常");
         } catch (UnsupportedEncodingException e) {
-            logger.error("不支持的编码异常");
+            log.error("不支持的编码异常");
         } catch (InvalidKeyException e) {
-            logger.error("无效key异常");
+            log.error("无效key异常");
         } catch (InvalidAlgorithmParameterException e) {
-            logger.error("算法参数不正确");
+            log.error("算法参数不正确");
         }
     }
 
@@ -89,7 +85,7 @@ public class AESUtil {
      * @return 密文字符串
      * @throws CommonException 异常
      */
-    public static String encrypt(String clearPwd) throws CommonException {
+    public static String encrypt(String clearPwd) {
         try {
             byte[] clearPwdBytes = clearPwd.getBytes(ENCODING);
             byte[] encrypted = encode.doFinal(clearPwdBytes);
@@ -105,7 +101,7 @@ public class AESUtil {
      * @return 明文字符串
      * @throws CommonException 异常
      */
-    public static String decrypt(String encrypted) throws CommonException {
+    public static String decrypt(String encrypted) {
         try {
             return new String(decode.doFinal(Base64.decodeBase64(encrypted)), ENCODING);
         } catch (Exception e) {
