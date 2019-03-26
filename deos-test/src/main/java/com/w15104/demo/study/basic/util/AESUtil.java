@@ -12,6 +12,8 @@ import com.w15104.demo.study.basic.exception.CommonException;
 import com.w15104.demo.study.basic.exception.ErrorCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /*
  *
@@ -24,8 +26,12 @@ import org.apache.commons.codec.binary.Base64;
  * @modified date:
  * @modified no:
  */
-@Slf4j
 public class AESUtil {
+
+    /**
+     * 日志
+     */
+    private static Logger logger = LoggerFactory.getLogger(AESUtil.class);
 
 	private AESUtil() {}
 	
@@ -69,13 +75,13 @@ public class AESUtil {
             decode = Cipher.getInstance(ALGO_MODE);
             decode.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
         } catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
-            log.error("算法不存在异常");
+            logger.error("算法不存在异常");
         } catch (UnsupportedEncodingException e) {
-            log.error("不支持的编码异常");
+            logger.error("不支持的编码异常");
         } catch (InvalidKeyException e) {
-            log.error("无效key异常");
+            logger.error("无效key异常");
         } catch (InvalidAlgorithmParameterException e) {
-            log.error("算法参数不正确");
+            logger.error("算法参数不正确");
         }
     }
 
