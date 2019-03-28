@@ -5,7 +5,6 @@ import com.w15104.demo.study.basic.exception.ErrorCode;
 import com.w15104.demo.study.mapper.ClassmateMapper;
 import com.w15104.demo.study.entity.Classmate;
 import com.w15104.demo.study.service.IClassmateService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;

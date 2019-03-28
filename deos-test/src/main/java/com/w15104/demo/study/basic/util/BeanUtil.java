@@ -19,6 +19,8 @@ import org.apache.commons.beanutils.BeanUtils;
  */
 public class BeanUtil {
 
+	private BeanUtil() {
+	}
 
   /**
    * 对象属性拷贝方法
@@ -27,7 +29,7 @@ public class BeanUtil {
    * @return 目标对象
    * @throws CommonException 异常
    */
-  public static <T> T copyBean(Object origin, Class<T> clasz) throws CommonException {
+  public static <T> T copyBean(Object origin, Class<T> clasz) {
     try {
       T t = clasz.newInstance();
       BeanUtils.copyProperties(t, origin);

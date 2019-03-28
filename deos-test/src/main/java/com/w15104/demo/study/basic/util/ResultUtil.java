@@ -1,6 +1,6 @@
 package com.w15104.demo.study.basic.util;
 
-import com.w15104.demo.study.basic.config.Result;
+import com.w15104.demo.study.basic.result.Result;
 import com.w15104.demo.study.basic.exception.ErrorCode;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +18,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ResultUtil {
 
+	private ResultUtil() {
+	}
+	
     /**
      * 构造成功报文
      * @param data 报文内容
@@ -41,7 +44,7 @@ public class ResultUtil {
      * @param isClinese 抛出错误的信息是否设置为中文
      * @return T
      */
-    public static <T> Result<T> error(ErrorCode code, Boolean isClinese) {
+    public static <T> Result<T> error(ErrorCode code) {
         return new Result<T>().setStatus(false).setCode(code);
     }
 

@@ -1,4 +1,4 @@
-package com.w15104.demo.study.basic.config;
+package com.w15104.demo.study.basic.result;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.w15104.demo.study.basic.exception.ErrorCode;
@@ -42,13 +42,7 @@ public class Result<T> implements Serializable {
     /**
      * 中文错误信息
      */
-    private String errMsgUS;
-
-    /**
-     * 英文错误信息
-     */
-    private String errMsgCN;
-
+    private String msg;
 
     public T getData() {
         return data;
@@ -59,21 +53,12 @@ public class Result<T> implements Serializable {
         return  this;
     }
 
-    public String getErrMsgCN() {
-        return errMsgCN;
+    public String getMsg() {
+        return msg;
     }
 
-    public Result<T> setErrMsgCN(String errMsgCN) {
-        this.errMsgCN = errMsgCN;
-        return this;
-    }
-
-    public String getErrMsgUS() {
-        return errMsgUS;
-    }
-
-    public Result<T> setErrMsgUS(String errMsgUS) {
-        this.errMsgUS = errMsgUS;
+    public Result<T> setMsg(String msg) {
+        this.msg = msg;
         return this;
     }
 
@@ -92,8 +77,7 @@ public class Result<T> implements Serializable {
 
 
     public Result<T> setCode(ErrorCode code) {
-        this.errMsgCN = code.getMessageCN();
-        this.errMsgUS = code.getMessageUS();
+        this.msg = code.getMessageCN();
         this.code = code;
         return this;
     }
@@ -104,8 +88,7 @@ public class Result<T> implements Serializable {
                 "status=" + status +
                 ", code=" + code +
                 ", data=" + data +
-                ", errMsgUS='" + errMsgUS + '\'' +
-                ", errMsgCN='" + errMsgCN + '\'' +
+                ", msg='" + msg + '\'' +
                 '}';
     }
 }
