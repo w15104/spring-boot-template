@@ -16,7 +16,7 @@
 		<spring-boot-version>1.5.8.RELEASE</spring-boot-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- swagger -->
-		<swagger-version>2.6.0</swagger-version>
+		<swagger-version>2.10.0</swagger-version>
 		<snippetsDirectory>${project.build.directory}/generated-snippets</snippetsDirectory>
 
 		<asciidoctor.input.directory>${project.basedir}/docs/asciidoc</asciidoctor.input.directory>
